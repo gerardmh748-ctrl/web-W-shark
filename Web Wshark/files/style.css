@@ -1,0 +1,1347 @@
+/* ==========================================
+   W SHARK - CSS MODERNO Y PREMIUM
+   Tech-Minimalist Design
+   ========================================== */
+
+/* VARIABLES CSS */
+:root { /* Define el alcance global de las variables personalizadas (custom properties) para que estén disponibles en todo el documento */
+    /* Colores */
+    --bg-dark: #0a0e27; /* Variable para el color de fondo azul oscuro principal */
+    --bg-darker: #050810; /* Variable para el color de fondo azul aún más oscuro/casi negro */
+    --bg-card: rgba(15, 19, 45, 0.8); /* Variable para el fondo de las tarjetas con azul marino traslúcido (80% opacidad) */
+    --text-primary: #ffffff; /* Variable para el texto principal en color blanco */
+    --text-secondary: #b8bcc4; /* Variable para el texto secundario en tono gris claro azulado */
+    --accent-blue: #00d9ff; /* Variable para el color de acento azul neón/cian */
+    --accent-purple: #7c3aed; /* Variable para el color de acento morado intenso */
+    --accent-pink: #ec4899; /* Variable para el color de acento rosa vibrante */
+    --gray-metal: #8b92a0; /* Variable para un color gris metálico intermedio */
+    --border-color: rgba(255, 255, 255, 0.1); /* Variable para bordes sutiles blancos con un 10% de opacidad */
+    
+    /* Tipografía */
+    --font-primary: 'Inter', sans-serif; /* Variable para la fuente principal del cuerpo de la página */
+    --font-display: 'Poppins', sans-serif; /* Variable para la fuente decorativa de los títulos */
+    
+    /* Espaciado */
+    --spacing-xs: 0.5rem; /* Variable para un espaciado extra pequeño (8px por defecto) */
+    --spacing-sm: 1rem; /* Variable para un espaciado pequeño (16px por defecto) */
+    --spacing-md: 2rem; /* Variable para un espaciado mediano (32px por defecto) */
+    --spacing-lg: 3rem; /* Variable para un espaciado grande (48px por defecto) */
+    --spacing-xl: 4rem; /* Variable para un espaciado extra grande (64px por defecto) */
+    
+    /* Transiciones */
+    --transition-fast: 300ms ease; /* Variable para una transición rápida de 300 milisegundos con aceleración suave */
+    --transition-smooth: 500ms ease; /* Variable para una transición intermedia de 500 milisegundos */
+    --transition-slow: 800ms ease; /* Variable para una transición lenta de 800 milisegundos */
+    
+    /* Sombras */
+    --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.3); /* Variable para una sombra pequeña y difuminada oscura */
+    --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.4); /* Variable para una sombra mediana con más dispersión */
+    --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.5); /* Variable para una sombra grande e intensa para dar profundidad */
+} /* Cierra el bloque de definición de variables en la raíz */
+
+/* RESET Y ESTILOS BASE */
+* { /* Selector universal que aplica las reglas a absolutamente todas las etiquetas HTML */
+    margin: 0; /* Elimina los márgenes que los navegadores añaden por defecto a los elementos */
+    padding: 0; /* Elimina los rellenos internos predeterminados de los elementos */
+    box-sizing: border-box; /* Configura el cálculo del tamaño para que los bordes y rellenos se incluyan dentro del ancho y alto total */
+} /* Cierra el selector universal */
+
+html { /* Aplica estilos directos a la raíz del documento HTML */
+    scroll-behavior: smooth; /* Hace que el desplazamiento por los enlaces internos de la página sea fluido y animado */
+    scroll-padding-top: 80px; /* Añade un margen superior al hacer scroll para que el contenido no quede oculto bajo el menú flotante */
+} /* Cierra el selector html */
+
+body { /* Selector para dar estilo al cuerpo general de la página web */
+    font-family: var(--font-primary); /* Aplica la fuente guardada en la variable '--font-primary' al texto */
+    background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%); /* Crea un fondo con degradado diagonal desde el color más oscuro al intermedio */
+    color: var(--text-primary); /* Aplica el color de texto blanco guardado en las variables globales */
+    overflow-x: hidden; /* Oculta cualquier contenido que sobresalga horizontalmente para evitar barras de desplazamiento lateral no deseadas */
+    line-height: 1.6; /* Define una altura de línea de 1.6 para mejorar la legibilidad del texto */
+} /* Cierra el selector body */
+
+.container { /* Selector para una clase utilitaria que envuelve y centra los contenidos */
+    max-width: 1200px; /* Limita el ancho máximo que puede alcanzar este contenedor a 1200 píxeles */
+    margin: 0 auto; /* Centra horizontalmente el contenedor asignando márgenes automáticos a los lados */
+    padding: 0 var(--spacing-md); /* Añade relleno protector a izquierda y derecha usando la variable de espacio mediano */
+} /* Cierra la clase .container */
+
+/* ==========================================
+   NAVBAR
+   ========================================== */
+.navbar { /* Selector para la barra de navegación principal */
+    position: fixed; /* Fija la barra de navegación en la pantalla para que no se mueva al hacer scroll */
+    top: 0; /* Alinea la barra de navegación en el borde superior absoluto de la ventana */
+    width: 100%; /* Expande la barra de navegación para que ocupe todo el ancho de la pantalla */
+    z-index: 1000; /* Asigna una capa alta para asegurar que la barra quede por encima de cualquier otro elemento */
+    backdrop-filter: blur(0px); /* Inicializa el filtro de desenfoque de fondo en 0 píxeles (sin efecto al inicio) */
+    background: rgba(5, 8, 16, 0); /* Establece un fondo completamente transparente usando formato RGBA */
+    border-bottom: 1px solid rgba(255, 255, 255, 0); /* Crea un borde inferior inicial totalmente transparente */
+    transition: all var(--transition-fast); /* Aplica una transición rápida a todos los cambios de propiedades que sufra la barra */
+    padding: var(--spacing-sm) 0; /* Añade relleno vertical usando el valor de la variable de espacio pequeño */
+} /* Cierra la clase .navbar */
+
+.navbar.scrolled { /* Selector combinado para cuando la barra de navegación tiene también la clase 'scrolled' (mediante JavaScript) */
+    backdrop-filter: blur(20px); /* Aplica un efecto de desenfoque de 20 píxeles a lo que esté detrás de la barra */
+    background: rgba(5, 8, 16, 0.7); /* Cambia el fondo a un color oscuro con 70% de opacidad para que sea legible */
+    border-bottom-color: var(--border-color); /* Cambia el color del borde inferior al blanco traslúcido guardado en variables */
+    padding: var(--spacing-xs) 0; /* Reduce el espacio vertical al de la variable extra pequeña para compactar la barra */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* Añade una sombra inferior oscura para dar efecto de elevación */
+} /* Cierra la clase .navbar.scrolled */
+
+.navbar-container { /* Selector para el contenedor interno de los elementos de la barra de navegación */
+    max-width: 1200px; /* Limita el ancho del contenido interno a un máximo de 1200 píxeles */
+    margin: 0 auto; /* Centra el bloque del contenedor en medio de la barra */
+    padding: 0 var(--spacing-md); /* Añade rellenos a los lados usando la variable de espacio mediano */
+    display: flex; /* Convierte el contenedor en un contenedor flexible (Flexbox) */
+    justify-content: space-between; /* Distribuye los elementos internos dejando el máximo espacio posible entre ellos */
+    align-items: center; /* Centra verticalmente todos los elementos que están dentro de la barra */
+} /* Cierra la clase .navbar-container */
+
+.logo { /* Selector para el enlace o bloque que contiene el logotipo del sitio */
+    display: flex; /* Activa Flexbox para organizar los elementos internos del logo (imagen y texto) */
+    align-items: center; /* Centra verticalmente el icono/imagen con el texto del logo */
+    gap: var(--spacing-sm); /* Añade una separación constante entre el icono y el texto mediante la variable pequeña */
+    font-size: 1.5rem; /* Define el tamaño de la letra del logotipo a 1.5rem */
+    font-weight: 800; /* Aplica un grosor de letra muy grueso (Extra Bold) */
+    font-family: var(--font-display); /* Utiliza la tipografía para títulos ('Poppins') */
+    text-decoration: none; /* Quita el subrayado clásico que tienen los enlaces por defecto */
+    cursor: pointer; /* Cambia el cursor del ratón al icono de la mano indicando que se puede hacer clic */
+    transition: transform var(--transition-fast); /* Define que cualquier cambio en la propiedad transform use la transición rápida */
+} /* Cierra la clase .logo */
+
+.logo:hover { /* Selector para cuando el usuario pasa el ratón por encima del logo */
+    transform: scale(1.05); /* Agranda ligeramente el logotipo en un 5% para dar feedback visual */
+} /* Cierra el estado hover de .logo */
+
+.logo-img { /* Selector para la imagen que forma parte del logotipo */
+    height: 40px; /* Define una altura fija de 40 píxeles para la imagen */
+    width: auto; /* Permite que el ancho se calcule automáticamente manteniendo la proporción original */
+} /* Cierra la clase .logo-img */
+
+.logo-text { /* Selector para la parte de texto del logotipo */
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); /* Aplica un degradado como fondo del texto */
+    -webkit-background-clip: text; /* Recorta el fondo degradado para que solo rellene la silueta de las letras (para Webkit) */
+    -webkit-text-fill-color: transparent; /* Hace transparente el color base del texto para que se note el degradado de fondo */
+    background-clip: text; /* Propiedad estándar para recortar el fondo a la silueta de las letras */
+} /* Cierra la clase .logo-text */
+
+.nav-menu { /* Selector para la lista que contiene los enlaces de navegación */
+    display: flex; /* Activa Flexbox para alinear la lista de enlaces de forma horizontal */
+    list-style: none; /* Elimina los puntos o viñetas predeterminadas de las listas desordenadas (ul) */
+    gap: var(--spacing-lg); /* Separa los enlaces entre sí usando el valor de la variable de espacio grande */
+    align-items: center; /* Alinea verticalmente los elementos de la lista en el centro */
+} /* Cierra la clase .nav-menu */
+
+.nav-link { /* Selector para los enlaces individuales del menú */
+    color: var(--text-secondary); /* Aplica el color gris claro secundario al texto del enlace */
+    text-decoration: none; /* Elimina el subrayado predeterminado del enlace */
+    font-size: 0.95rem; /* Establece un tamaño de fuente sutilmente inferior a la base */
+    font-weight: 500; /* Aplica un grosor de letra medio (Medium) */
+    transition: color var(--transition-fast); /* Configura una transición rápida solo para los cambios en el color del texto */
+    position: relative; /* Establece posicionamiento relativo para servir de eje a la línea animada absoluta */
+} /* Cierra la clase .nav-link */
+
+.nav-link::after { /* Pseudo-elemento que crea una capa virtual justo después del contenido del enlace (usada para la línea inferior) */
+    content: ''; /* Campo obligatorio vacío para que el pseudo-elemento pueda renderizarse en el navegador */
+    position: absolute; /* Posiciona la línea de forma absoluta respecto al enlace padre (.nav-link) */
+    bottom: -5px; /* Sitúa la línea virtual 5 píxeles por debajo del texto */
+    left: 0; /* Alinea el inicio de la línea con el borde izquierdo del enlace */
+    width: 0; /* Inicia con un ancho de 0 para que la línea no se vea al principio */
+    height: 2px; /* Establece el grosor de la línea inferior en 2 píxeles */
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple)); /* Rellena la línea con un degradado horizontal */
+    transition: width var(--transition-fast); /* Configura la propiedad 'width' para que se anime con la velocidad rápida */
+} /* Cierra el pseudo-elemento .nav-link::after */
+
+.nav-link:hover { /* Selector para cuando el ratón se posiciona sobre un enlace del menú */
+    color: var(--accent-blue); /* Cambia el color del texto al azul neón de acento */
+} /* Cierra el estado hover de .nav-link */
+
+.nav-link:hover::after { /* Modifica la línea virtual cuando el usuario pasa el ratón sobre el enlace */
+    width: 100%; /* Expande el ancho de la línea al 100% para simular que se dibuja por completo */
+} /* Cierra el estado hover de .nav-link::after */
+
+.nav-cta { /* Selector para el botón de llamada a la acción posicionado dentro del menú */
+    margin-left: var(--spacing-md); /* Añade una separación extra a la izquierda para distanciarlo de los enlaces comunes */
+} /* Cierra la clase .nav-cta */
+
+/* Menú hamburguesa */
+.menu-toggle { /* Selector para el botón de menú móvil (tres líneas) */
+    display: none; /* Oculta por completo este botón en pantallas de escritorio grandes */
+    flex-direction: column; /* Organiza los elementos internos (las líneas) en una columna vertical */
+    cursor: pointer; /* Cambia el ratón al icono de la mano que indica interacción */
+    gap: 6px; /* Deja una separación de 6 píxeles entre cada línea del botón */
+} /* Cierra la clase .menu-toggle */
+
+.menu-toggle span { /* Selector para las barritas individuales dentro del botón hamburguesa */
+    width: 25px; /* Define un ancho fijo de 25 píxeles para las líneas */
+    height: 2px; /* Define un espesor de 2 píxeles para cada línea */
+    background: var(--text-primary); /* Pinta las barritas con el color blanco principal del texto */
+    border-radius: 2px; /* Redondea los extremos de las líneas en 2 píxeles */
+    transition: all var(--transition-fast); /* Permite que los cambios de forma o rotación se animen velozmente */
+} /* Cierra el selector .menu-toggle span */
+
+/* ==========================================
+   HERO SECTION
+   ========================================== */
+.hero { /* Selector para la sección de bienvenida de la página */
+    position: relative; /* Define posicionamiento relativo para contener los fondos y partículas absolutas en su interior */
+    min-height: 100vh; /* Obliga a la sección a medir, como mínimo, el 100% de la altura de la ventana del navegador */
+    display: flex; /* Activa Flexbox en la sección */
+    align-items: center; /* Centra verticalmente los bloques de contenido */
+    justify-content: center; /* Centra horizontalmente los bloques de contenido */
+    overflow: hidden; /* Corta y esconde cualquier elemento de diseño de fondo que se salga de la sección */
+    padding-top: 80px; /* Deja un espacio superior de 80px para evitar colisiones con el menú superior fijo */
+    background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-darker) 100%); /* Aplica un degradado vertical de fondo de arriba hacia abajo */
+} /* Cierra la clase .hero */
+
+.hero-background { /* Selector para el contenedor que encapsula las formas abstractas decorativas del fondo */
+    position: absolute; /* Desconecta el contenedor del flujo normal y lo pega de forma absoluta */
+    width: 100%; /* Cubre el 100% del ancho de la sección hero */
+    height: 100%; /* Cubre el 100% del alto de la sección hero */
+    top: 0; /* Se alinea exactamente arriba */
+    left: 0; /* Se alinea exactamente a la izquierda */
+    z-index: 1; /* Posiciona esta capa en el nivel 1 (por detrás del texto y los botones) */
+    overflow: hidden; /* Evita que las esferas de luz grandes generen barras de desplazamiento */
+} /* Cierra la clase .hero-background */
+
+.gradient-sphere { /* Selector para las esferas de luz difuminadas que adornan el fondo */
+    position: absolute; /* Permite posicionarlas libremente por coordenadas en el contenedor de fondo */
+    border-radius: 50%; /* Hace que la forma geométrica del elemento sea un círculo perfecto */
+    opacity: 0.3; /* Reduce la opacidad al 30% para que el brillo sea sutil y no encandile */
+    filter: blur(80px); /* Aplica un desenfoque masivo de 80 píxeles para simular una luz de neón dispersa */
+    animation: float 20s ease-in-out infinite; /* Asigna la animación llamada 'float' por 20 segundos en bucle infinito */
+} /* Cierra la clase .gradient-sphere */
+
+.gradient-1 { /* Selector específico para la primera esfera de luz */
+    width: 400px; /* Define un ancho de 400 píxeles */
+    height: 400px; /* Define un alto de 400 píxeles */
+    background: radial-gradient(circle, rgba(0, 217, 255, 0.8), transparent); /* Pinta un degradado radial azul neón que se desvanece a transparente */
+    top: -100px; /* Saca la esfera 100 píxeles hacia arriba del límite del contenedor */
+    right: -100px; /* Saca la esfera 100 píxeles a la derecha del límite */
+    animation-delay: 0s; /* Indica que la animación inicia inmediatamente sin retrasos */
+} /* Cierra la clase .gradient-1 */
+
+.gradient-2 { /* Selector específico para la segunda esfera de luz */
+    width: 500px; /* Define un diámetro mayor de 500 píxeles */
+    height: 500px; /* Define la altura en 500 píxeles */
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.6), transparent); /* Gradiente radial morado que se desvanece */
+    bottom: 0; /* Alinea la esfera en la zona inferior */
+    left: -200px; /* Desplaza la esfera 200 píxeles hacia la izquierda externa */
+    animation-delay: 7s; /* Retrasa el inicio de su animación por 7 segundos para desincronizarla de la primera */
+} /* Cierra la clase .gradient-2 */
+
+.gradient-3 { /* Selector específico para la tercera esfera de luz */
+    width: 350px; /* Establece un diámetro de 350 píxeles */
+    height: 350px; /* Establece el alto en 350 píxeles */
+    background: radial-gradient(circle, rgba(236, 72, 153, 0.5), transparent); /* Gradiente radial rosa que se desvanece */
+    top: 50%; /* Sitúa el inicio del objeto a la mitad exacta verticalmente */
+    left: 50%; /* Sitúa el inicio del objeto a la mitad exacta horizontalmente */
+    animation-delay: 14s; /* Aplica un retraso de 14 segundos antes de arrancar su ciclo de animación */
+} /* Cierra la clase .gradient-3 */
+
+@keyframes float { /* Declaración de la animación de fotogramas clave llamada 'float' */
+    0%, 100% { transform: translate(0, 0) scale(1); } /* En el inicio y fin, el objeto está en su posición original y tamaño base */
+    33% { transform: translate(30px, -50px) scale(1.1); } /* Al 33%, se desplaza en diagonal y crece un 10% */
+    66% { transform: translate(-30px, 50px) scale(0.9); } /* Al 66%, se desplaza al lado opuesto y se encoge un 10% */
+} /* Cierra la animación @keyframes float */
+
+#particleCanvas { /* Selector para el lienzo interactivo donde se renderizan las partículas (generalmente por Javascript) */
+    position: absolute; /* Lo coloca flotando sobre el fondo de manera fija */
+    width: 100%; /* Configura el ancho para ocupar todo el espacio horizontal disponible */
+    height: 100%; /* Configura la altura para abarcar todo el espacio vertical disponible */
+    z-index: 2; /* Se coloca en la capa 2, sobre las esferas de luz pero bajo los textos */
+} /* Cierra el selector por ID #particleCanvas */
+
+.hero-content { /* Selector para la caja que retiene el contenido real e informativo del Hero */
+    position: relative; /* Genera contexto para poder aplicar la propiedad z-index */
+    z-index: 3; /* Eleva los textos a la capa 3 para asegurar que queden por encima de luces y partículas */
+    text-align: center; /* Centra todas las líneas de texto dentro del contenedor */
+    max-width: 900px; /* Impide que los textos se expandan en pantallas gigantes a más de 900 píxeles */
+    margin: 0 auto; /* Centra el bloque de contenidos en la pantalla */
+    padding: 0 var(--spacing-md); /* Da un margen protector a los lados usando la variable mediana */
+} /* Cierra la clase .hero-content */
+
+.hero-title { /* Selector para el título principal (H1) del Hero */
+    font-size: clamp(2.5rem, 8vw, 4.5rem); /* Escalado fluido: tamaño mínimo 2.5rem, óptimo 8% de la pantalla y máximo 4.5rem */
+    font-family: var(--font-display); /* Usa la fuente 'Poppins' configurada para títulos */
+    font-weight: 800; /* Aplica un estilo tipográfico extra grueso */
+    line-height: 1.2; /* Reduce el interlineado a 1.2 para compactar visualmente el título grande */
+    margin-bottom: var(--spacing-lg); /* Deja una separación inferior correspondiente a la variable grande */
+    letter-spacing: -1px; /* Junta levemente las letras restando 1 píxel de espacio entre ellas para un look premium */
+} /* Cierra la clase .hero-title */
+
+.hero-title .highlight { /* Selector enfocado en el fragmento destacado del título (etiqueta span) */
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple), var(--accent-pink)); /* Crea un degradado con tres colores */
+    -webkit-background-clip: text; /* Recorta el degradado multicolor a la forma exacta de las letras */
+    -webkit-text-fill-color: transparent; /* Remueve el color de texto sólido nativo */
+    background-clip: text; /* Estándar moderno para recortar el fondo al texto */
+    display: inline-block; /* Convierte el span en bloque en línea para que las animaciones o transformaciones funcionen correctamente */
+} /* Cierra la clase .hero-title .highlight */
+
+.hero-subtitle { /* Selector enfocado en el subtítulo explicativo del Hero */
+    font-size: 1.1rem; /* Define el tamaño del texto en 1.1 rem */
+    color: var(--text-secondary); /* Pinta el texto con el color gris claro secundario */
+    margin-bottom: var(--spacing-xl); /* Genera un gran espacio inferior usando la variable extra grande */
+    line-height: 1.8; /* Aumenta el interlineado a 1.8 para dotar de aire y legibilidad al párrafo */
+    max-width: 700px; /* Acorta el ancho del subtítulo a 700px para que las líneas de texto no sean cansinas de leer */
+    margin-left: auto; /* Truco junto con margin-right para centrar el bloque de ancho limitado */
+    margin-right: auto; /* Centra el bloque por el lado derecho */
+} /* Cierra la clase .hero-subtitle */
+
+.hero-buttons { /* Selector para el contenedor de la botonera principal del Hero */
+    display: flex; /* Activa Flexbox para poner un botón al lado del otro */
+    gap: var(--spacing-md); /* Inserta una separación estándar entre botones con la variable mediana */
+    justify-content: center; /* Centra horizontalmente el grupo de botones */
+    margin-bottom: var(--spacing-xl); /* Coloca un espacio inferior usando la variable extra grande */
+    flex-wrap: wrap; /* Si los botones no caben horizontalmente en pantallas chicas, saltan de línea automáticamente */
+} /* Cierra la clase .hero-buttons */
+
+.hero-stats { /* Selector para la fila de estadísticas que va abajo en el Hero */
+    display: flex; /* Activa Flexbox para distribuir los grupos de estadísticas */
+    gap: var(--spacing-xl); /* Asigna una gran separación entre cada dato estadístico */
+    justify-content: center; /* Centra la fila completa en el eje horizontal */
+    margin-top: var(--spacing-xl); /* Separa la zona de estadísticas de la zona superior mediante margen */
+    padding-top: var(--spacing-xl); /* Rellena internamente la zona superior antes del borde */
+    border-top: 1px solid var(--border-color); /* Traza una delicada línea divisoria arriba usando el color de borde traslúcido */
+    flex-wrap: wrap; /* Permite flexibilidad y saltos de línea si el ancho de pantalla disminuye */
+} /* Cierra la clase .hero-stats */
+
+.stat { /* Selector para el bloque individual que agrupa un número y su etiqueta */
+    display: flex; /* Aplica Flexbox al bloque */
+    flex-direction: column; /* Apila el número arriba y el texto abajo (en columna) */
+    align-items: center; /* Alinea los dos componentes en el centro del eje horizontal */
+    gap: var(--spacing-xs); /* Da un pequeño espacio entre el número y la etiqueta con la variable xs */
+} /* Cierra la clase .stat */
+
+.stat-number { /* Selector enfocado en el número de la estadística */
+    font-size: 2rem; /* Define un tamaño de letra imponente de 2rem */
+    font-weight: 800; /* Aplica el grosor tipográfico máximo (Extra Bold) */
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); /* Asigna fondo degradado azul-morado */
+    -webkit-background-clip: text; /* Recorta el fondo degradado para que llene el número */
+    -webkit-text-fill-color: transparent; /* Hace transparente la pintura nativa del número */
+    background-clip: text; /* Aplica el recorte de fondo en navegadores modernos */
+} /* Cierra la clase .stat-number */
+
+.stat-label { /* Selector para la pequeña descripción o etiqueta bajo el número */
+    font-size: 0.85rem; /* Achica la fuente a un tamaño de 0.85rem */
+    color: var(--text-secondary); /* Pinta la descripción de color gris claro secundario */
+    text-transform: uppercase; /* Convierte todo el texto automáticamente a letras mayúsculas */
+    letter-spacing: 1px; /* Añade un espacio de 1 píxel entre letras para mejorar la estética industrial */
+} /* Cierra la clase .stat-label */
+
+/* ==========================================
+   BOTONES
+   ========================================== */
+.btn-cta, /* Agrupación de clases de botones que comparten las mismas propiedades iniciales */
+.btn-primary, /* Estilo general */
+.btn-secondary { /* Estilo general */
+    padding: 14px 32px; /* Relleno uniforme: 14 píxeles arriba/abajo y 32 píxeles a los lados */
+    border: none; /* Elimina cualquier borde gris que pongan los navegadores por defecto */
+    border-radius: 10px; /* Redondea las esquinas del botón dándole un aspecto moderno */
+    font-size: 1rem; /* Aplica tamaño de texto base de 1rem */
+    font-weight: 600; /* Hace la tipografía seminegrita (Semi Bold) */
+    cursor: pointer; /* Cambia el ratón al puntero de mano al situarse encima del botón */
+    transition: all var(--transition-fast); /* Hace que todas las propiedades muten fluidamente a velocidad rápida */
+    text-decoration: none; /* Previene el subrayado del texto si el botón se aplica sobre una etiqueta de enlace <a> */
+    display: inline-block; /* Permite estructurar rellenos y dimensiones sin perder el comportamiento en línea */
+    position: relative; /* Define contexto de posición para posibles efectos de brillo internos */
+    overflow: hidden; /* Corta destellos o efectos visuales que excedan el tamaño del botón */
+    font-family: var(--font-primary); /* Forza el uso de la fuente primaria en los botones */
+} /* Cierra el bloque común de botones */
+
+.btn-primary { /* Selector para el botón con diseño de jerarquía principal */
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); /* Rellena el botón con el degradado azul y morado */
+    color: var(--text-primary); /* Cambia el color del texto a blanco */
+    box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3); /* Coloca una sombra azul brillante difuminada bajo el botón */
+} /* Cierra la clase .btn-primary */
+
+.btn-primary:hover { /* Modificaciones visuales al poner el cursor sobre el botón primario */
+    transform: translateY(-3px); /* Eleva sutilmente el botón 3 píxeles hacia arriba simulando flotación */
+    box-shadow: 0 15px 40px rgba(0, 217, 255, 0.5); /* Intensifica la sombra para acentuar el efecto de altura */
+} /* Cierra el estado hover de .btn-primary */
+
+.btn-primary:active { /* Efecto visual en el preciso instante en que el usuario hace clic (presiona el botón) */
+    transform: translateY(-1px); /* Baja el botón levemente a 1px para simular la presión física de un clic */
+} /* Cierra el estado active de .btn-primary */
+
+.btn-secondary { /* Selector para el botón secundario o de menor relevancia */
+    background: transparent; /* Hace transparente el fondo del botón */
+    color: var(--accent-blue); /* Pinta las letras del botón de color azul neón */
+    border: 2px solid var(--accent-blue); /* Crea un contorno sólido de 2 píxeles con el color azul neón */
+} /* Cierra la clase .btn-secondary */
+
+.btn-secondary:hover { /* Efecto al posar el cursor sobre el botón secundario */
+    background: rgba(0, 217, 255, 0.1); /* Agrega un tinte sutil azul con 10% de opacidad en el fondo */
+    transform: translateY(-3px); /* Eleva el botón 3 píxeles hacia arriba */
+} /* Cierra el estado hover de .btn-secondary */
+
+.btn-cta { /* Selector para botones con propósito específico de conversión */
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); /* Fondo degradado */
+    color: var(--text-primary); /* Texto en color blanco */
+    box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3); /* Sombra difuminada azul */
+} /* Cierra la clase .btn-cta */
+
+.btn-large { /* Clase modificadora opcional para crear una versión gigante del botón */
+    padding: 18px 48px; /* Aumenta el relleno a 18 píxeles en vertical y 48 píxeles en horizontal */
+    font-size: 1.1rem; /* Sube la escala del texto del botón a 1.1rem */
+} /* Cierra la clase .btn-large */
+
+.btn-pricing { /* Selector para los botones integrados dentro de las tarjetas de precios */
+    width: 100%; /* Obliga al botón a extenderse por todo el ancho disponible de la tarjeta */
+    padding: 14px 24px; /* Aplica rellenos internos balanceados */
+    border: 1px solid var(--border-color); /* Inicializa un borde delgado con el tono blanco traslúcido */
+    background: transparent; /* Fondo limpio y vacío */
+    color: var(--text-primary); /* Letras en color blanco */
+    border-radius: 10px; /* Redondeado de esquinas de 10 píxeles */
+    font-weight: 600; /* Peso de texto seminegrita */
+    cursor: pointer; /* Cursor en modo mano apuntadora */
+    transition: all var(--transition-fast); /* Habilita animaciones rápidas al interactuar */
+} /* Cierra la clase .btn-pricing */
+
+.btn-pricing:hover { /* Modificaciones cuando pasas el ratón sobre el botón de precios */
+    border-color: var(--accent-blue); /* Cambia el color del contorno al azul neón */
+    background: rgba(0, 217, 255, 0.05); /* Aplica un fondo azul casi imperceptible (5% opacidad) */
+    transform: translateY(-2px); /* Eleva el botón 2 píxeles */
+} /* Cierra el estado hover de .btn-pricing */
+
+/* ==========================================
+   SECCIONES GENERALES
+   ========================================== */
+section { /* Selector global para las grandes secciones semánticas de la página */
+    padding: var(--spacing-xl) 0; /* Rellena las secciones verticalmente usando la variable extra grande y 0 a los lados */
+    position: relative; /* Activa el posicionamiento relativo para estructurar elementos de diseño internos */
+} /* Cierra el selector section */
+
+.section-header { /* Selector para el encabezado centrado de cada sección */
+    text-align: center; /* Centra los títulos y subtítulos contenidos */
+    margin-bottom: var(--spacing-xl); /* Agrega un espacio inferior considerable usando la variable extra grande */
+} /* Cierra la clase .section-header */
+
+.section-title { /* Selector para el título principal de cada sección */
+    font-size: clamp(2rem, 5vw, 3.5rem); /* Tamaño adaptativo: mínimo 2rem, escala según pantalla y tope en 3.5rem */
+    font-family: var(--font-display); /* Implementa la fuente de títulos 'Poppins' */
+    font-weight: 800; /* Aplica máximo grosor de letra */
+    margin-bottom: var(--spacing-md); /* Separa el título del párrafo con la variable de espacio mediano */
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); /* Configura fondo degradado azul-morado */
+    -webkit-background-clip: text; /* Recorta el fondo a las letras del título */
+    -webkit-text-fill-color: transparent; /* Hace transparente el texto plano */
+    background-clip: text; /* Estandarización del recorte de fondo */
+} /* Cierra la clase .section-title */
+
+.section-description { /* Selector para la descripción explicativa ubicada debajo del título de sección */
+    font-size: 1.1rem; /* Tamaño de fuente en 1.1rem */
+    color: var(--text-secondary); /* Color gris claro secundario */
+    max-width: 600px; /* Restringe el párrafo a 600px de ancho para que no sea molesto leerlo en monitores anchos */
+    margin: 0 auto; /* Centra la caja del párrafo horizontalmente */
+} /* Cierra la clase .section-description */
+
+/* ==========================================
+   SERVICIOS
+   ========================================== */
+.servicios { /* Selector para el bloque o sección contenedora de los servicios */
+    background: linear-gradient(180deg, rgba(10, 14, 39, 0) 0%, rgba(10, 14, 39, 0.5) 100%); /* Degradado vertical sutil que oscurece el fondo hacia la base */
+    border-top: 1px solid var(--border-color); /* Agrega una línea fina arriba */
+    border-bottom: 1px solid var(--border-color); /* Agrega una línea fina abajo */
+} /* Cierra la clase .servicios */
+
+.servicios-grid { /* Selector para la rejilla que organiza las tarjetas de servicios */
+    display: grid; /* Activa el motor de diseño CSS Grid */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Crea columnas dinámicas: se acomodan solas midiendo mínimo 300px y se reparten proporcionalmente */
+    gap: var(--spacing-lg); /* Separa las tarjetas entre sí usando la variable de espacio grande */
+} /* Cierra la clase .servicios-grid */
+
+.service-card { /* Selector para las tarjetas individuales de servicio */
+    background: var(--bg-card); /* Aplica el fondo azul marino traslúcido guardado en variables */
+    backdrop-filter: blur(20px); /* Agrega desenfoque de cristal esmerilado al fondo de la tarjeta */
+    border: 1px solid var(--border-color); /* Contorno sutil e inicial */
+    border-radius: 20px; /* Redondeado sofisticado de esquinas a 20 píxeles */
+    padding: var(--spacing-lg); /* Relleno interno espacioso mediante la variable grande */
+    transition: all var(--transition-smooth); /* Cambios suaves controlados por la variable de transición intermedia */
+    position: relative; /* Contexto de posición indispensable para su pseudo-elemento decorativo */
+    overflow: hidden; /* Oculta excedentes de los brillos internos */
+} /* Cierra la clase .service-card */
+
+.service-card::before { /* Pseudo-elemento para recrear un brillo de neón interno superior en la tarjeta */
+    content: ''; /* Espacio virtual en blanco */
+    position: absolute; /* Anclado absoluto */
+    top: 0; /* Esquina superior */
+    left: 0; /* Esquina izquierda */
+    width: 100%; /* Cubre todo el ancho de la tarjeta */
+    height: 100%; /* Cubre todo el alto de la tarjeta */
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), transparent); /* Gradiente diagonal suave de azul neón a transparente */
+    opacity: 0; /* Inicialmente invisible */
+    transition: opacity var(--transition-smooth); /* Difumina de manera suave la aparición de la luz */
+    pointer-events: none; /* Ignora eventos de ratón para que no bloquee selecciones de texto o clics internos */
+} /* Cierra .service-card::before */
+
+.service-card:hover { /* Comportamiento de la tarjeta de servicio al poner el ratón encima */
+    border-color: var(--accent-blue); /* Destaca el contorno volviéndolo azul neón */
+    transform: translateY(-10px); /* Eleva la tarjeta 10 píxeles con una animación fluida de flotación */
+    box-shadow: 0 20px 50px rgba(0, 217, 255, 0.2); /* Proyecta un aura luminosa azul transparente abajo */
+} /* Cierra el estado hover de .service-card */
+
+.service-card:hover::before { /* Activa el brillo interno cuando el padre sufre un hover */
+    opacity: 1; /* Vuelve 100% visible el gradiente azul neón del fondo */
+} /* Cierra el estado hover en el pseudo-elemento */
+
+.service-icon { /* Selector para la caja que aloja el icono del servicio */
+    width: 60px; /* Ancho fijo de 60 píxeles */
+    height: 60px; /* Altura fija de 60 píxeles */
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); /* Fondo con gradiente moderno de azul a morado */
+    border-radius: 15px; /* Redondea las esquinas del contenedor del icono en 15 píxeles */
+    display: flex; /* Activa Flexbox interno */
+    align-items: center; /* Centra el icono verticalmente */
+    justify-content: center; /* Centra el icono horizontalmente */
+    margin-bottom: var(--spacing-md); /* Separa el icono del título usando la variable mediana */
+    color: var(--text-primary); /* Color blanco para el icono en formato SVG */
+} /* Cierra la clase .service-icon */
+
+.service-icon svg { /* Selector enfocado directamente en el gráfico vectorial dentro del contenedor del icono */
+    width: 32px; /* Forzar el ancho del SVG a 32 píxeles */
+    height: 32px; /* Forzar la altura del SVG a 32 píxeles */
+} /* Cierra el selector .service-icon svg */
+
+.service-card h3 { /* Selector enfocado en el título interno de la tarjeta de servicio */
+    font-size: 1.5rem; /* Establece tamaño de letra en 1.5rem */
+    font-family: var(--font-display); /* Usa la tipografía 'Poppins' */
+    font-weight: 700; /* Peso de texto negrita */
+    margin-bottom: var(--spacing-sm); /* Margen inferior para separarlo del párrafo descriptivo con la variable corta */
+} /* Cierra el selector .service-card h3 */
+
+.service-card p { /* Selector enfocado en el párrafo explicativo del servicio */
+    color: var(--text-secondary); /* Color de texto gris claro */
+    line-height: 1.8; /* Generoso interlineado de 1.8 para una lectura relajada */
+    margin-bottom: var(--spacing-md); /* Separa el texto de las etiquetas inferiores con la variable mediana */
+} /* Cierra el selector .service-card p */
+
+.service-features { /* Selector para el contenedor de etiquetas de tecnologías o características */
+    display: flex; /* Activa Flexbox */
+    flex-wrap: wrap; /* Permite que las etiquetas pasen abajo si no hay suficiente espacio horizontal */
+    gap: var(--spacing-sm); /* Separa las etiquetas entre sí con la variable corta */
+} /* Cierra la clase .service-features */
+
+.feature-tag { /* Selector para las pequeñas píldoras/etiquetas de características */
+    background: rgba(0, 217, 255, 0.1); /* Fondo azul traslúcido muy ligero */
+    color: var(--accent-blue); /* Texto en color azul neón */
+    padding: 6px 12px; /* Relleno ergonómico de 6px arriba/abajo y 12px a los lados */
+    border-radius: 20px; /* Hace los extremos totalmente circulares */
+    font-size: 0.85rem; /* Letra pequeña de 0.85rem */
+    font-weight: 600; /* Fuente seminegrita */
+    border: 1px solid rgba(0, 217, 255, 0.3); /* Contorno azul con 30% de opacidad para definir la píldora */
+} /* Cierra la clase .feature-tag */
+
+/* ==========================================
+   METODOLOGÍA / TIMELINE
+   ========================================== */
+.metodologia { /* Selector para la sección que detalla los pasos de trabajo */
+    background: linear-gradient(180deg, rgba(10, 14, 39, 0.5) 0%, rgba(10, 14, 39, 0) 100%); /* Degradado vertical inverso que se aclara hacia la base */
+    border-top: 1px solid var(--border-color); /* Línea divisoria en el límite superior */
+} /* Cierra la clase .metodologia */
+
+.timeline { /* Selector para la estructura general de la línea de tiempo */
+    position: relative; /* Requerido para posicionar la barra vertical decorativa absoluta en su interior */
+    display: grid; /* Activa Grid */
+    grid-template-columns: 1fr; /* Una sola columna que abarca todo el ancho del bloque */
+    gap: var(--spacing-xl); /* Gran separación entre pasos mediante la variable extra grande */
+    max-width: 800px; /* Reduce el ancho general a 800px para centrar la atención en la lectura */
+    margin: 0 auto; /* Centra el bloque general de la línea de tiempo en la pantalla */
+} /* Cierra la clase .timeline */
+
+.timeline::before { /* Pseudo-elemento que dibuja el hilo o barra vertical de la línea de tiempo */
+    content: ''; /* Espacio vacío funcional */
+    position: absolute; /* Fijación absoluta */
+    left: 20px; /* Coloca la barra a 20 píxeles del extremo izquierdo */
+    top: 0; /* Inicia arriba del todo */
+    bottom: 0; /* Se estira hasta el final del contenedor */
+    width: 2px; /* Grosor de la línea vertical de 2 píxeles */
+    background: linear-gradient(180deg, var(--accent-blue), var(--accent-purple)); /* Atractivo degradado vertical de azul a morado */
+    opacity: 0.3; /* Atenúa la visibilidad de la línea al 30% */
+} /* Cierra .timeline::before */
+
+.timeline-item { /* Selector para cada tarjeta de paso dentro de la línea de tiempo */
+    position: relative; /* Requerido para coordinar elementos internos */
+    margin-left: 100px; /* Desplaza la tarjeta a la derecha dejando libre el carril izquierdo para la barra e iconos */
+    padding: var(--spacing-lg); /* Relleno espacioso usando la variable grande */
+    background: var(--bg-card); /* Fondo translúcido oscuro */
+    backdrop-filter: blur(20px); /* Filtro de cristal esmerilado */
+    border: 1px solid var(--border-color); /* Borde blanco fino traslúcido */
+    border-radius: 15px; /* Redondea los cantos de la tarjeta en 15 píxeles */
+    transition: all var(--transition-smooth); /* Transiciones fluidas intermedias */
+} /* Cierra la clase .timeline-item */
+
+.timeline-item:hover { /* Efectos cuando el usuario pasa el ratón sobre un paso de la línea */
+    border-color: var(--accent-blue); /* Ilumina el contorno en azul neón */
+    box-shadow: 0 15px 40px rgba(0, 217, 255, 0.2); /* Genera un brillo inferior sutil */
+    transform: translateX(10px); /* Mueve la tarjeta ligeramente 10 píxeles a la derecha de forma interactiva */
+} /* Cierra el estado hover de .timeline-item */
+
+.timeline-marker { /* Selector para las viñetas circulares interactivas situadas sobre la barra vertical */
+    position: absolute; /* Flota de forma absoluta fuera de la tarjeta */
+    left: -70px; /* Desplaza el círculo exactamente hacia la izquierda para centrarlo encima del hilo vertical */
+    top: 30px; /* Lo sitúa a 30 píxeles de altura respecto al tope de la tarjeta */
+    width: 40px; /* Diámetro de 40 píxeles */
+    height: 40px; /* Altura de 40 píxeles */
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); /* Fondo degradado llamativo */
+    border: 3px solid var(--bg-dark); /* Grueso contorno oscuro de 3px para separarlo visualmente del fondo */
+    border-radius: 50%; /* Transforma el bloque en un círculo perfecto */
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.5); /* Emite una corona luminosa azul */
+} /* Cierra la clase .timeline-marker */
+
+.timeline-content h3 { /* Selector enfocado en el título del paso del timeline */
+    font-size: 1.3rem; /* Tamaño de letra a 1.3rem */
+    font-family: var(--font-display); /* Tipografía 'Poppins' */
+    font-weight: 700; /* Grosor en negrita */
+    margin-bottom: var(--spacing-sm); /* Pequeña separación inferior usando la variable de espacio corto */
+} /* Cierra el selector .timeline-content h3 */
+
+.timeline-content p { /* Selector enfocado en el párrafo de descripción del proceso */
+    color: var(--text-secondary); /* Texto de color gris claro */
+    line-height: 1.8; /* Interlineado alto para facilitar lectura */
+    font-size: 0.95rem; /* Tamaño de texto sutilmente más pequeño que el estándar */
+} /* Cierra el selector .timeline-content p */
+
+.timeline-number { /* Selector para el número gigante decorativo semitransparente dentro del paso */
+    position: absolute; /* Lo desconecta y ubica libremente */
+    top: -15px; /* Lo asoma un poco por encima del borde superior */
+    right: 20px; /* Lo sitúa al extremo derecho de la tarjeta */
+    font-size: 3rem; /* Tamaño masivo de tipografía a 3rem */
+    font-weight: 800; /* Letra extra gruesa */
+    color: rgba(0, 217, 255, 0.1); /* Color azul neón ultra transparente (10% opacidad) para que actúe de marca de agua */
+    font-family: var(--font-display); /* Fuente 'Poppins' */
+} /* Cierra la clase .timeline-number */
+
+/* ==========================================
+   PORTFOLIO
+   ========================================== */
+.portfolio { /* Selector para la sección de galería de proyectos ejecutados */
+    background: linear-gradient(180deg, rgba(10, 14, 39, 0) 0%, rgba(10, 14, 39, 0.5) 100%); /* Gradiente de fondo oscurecedor */
+    border-top: 1px solid var(--border-color); /* Línea en la zona superior */
+    border-bottom: 1px solid var(--border-color); /* Línea en la zona inferior */
+} /* Cierra la clase .portfolio */
+
+.portfolio-grid { /* Selector para la cuadrícula contenedora de proyectos */
+    display: grid; /* Activa el motor CSS Grid */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Columnas responsivas automáticas con base mínima de 320 píxeles */
+    gap: var(--spacing-lg); /* Separaciones amplias reguladas por la variable grande */
+} /* Cierra la clase .portfolio-grid */
+
+.portfolio-card { /* Selector para las tarjetas individuales de proyectos de la galería */
+    background: var(--bg-card); /* Color base marino traslúcido */
+    backdrop-filter: blur(20px); /* Efecto esmerilado de fondo */
+    border: 1px solid var(--border-color); /* Contorno sutil inicial */
+    border-radius: 20px; /* Esquinas muy redondeadas de 20 píxeles */
+    overflow: hidden; /* Corta esquinas e imágenes para que adopten el redondeado de la tarjeta */
+    transition: all var(--transition-smooth); /* Cambios con fluidez intermedia */
+} /* Cierra la clase .portfolio-card */
+
+.portfolio-card:hover { /* Animación interactiva al pasar el puntero sobre el proyecto */
+    border-color: var(--accent-blue); /* El contorno cambia a azul neón */
+    transform: translateY(-15px); /* Eleva la tarjeta de manera drástica 15 píxeles */
+    box-shadow: 0 25px 60px rgba(0, 217, 255, 0.25); /* Proyecta sombra amplia con aura azulada */
+} /* Cierra el estado hover de .portfolio-card */
+
+.portfolio-image { /* Selector para el contenedor superior que simula la pantalla o zona visual del proyecto */
+    position: relative; /* Contexto de posición */
+    aspect-ratio: 16 / 10; /* Fuerza una proporción de pantalla ancha moderna (16 de ancho por 10 de alto) */
+    overflow: hidden; /* Oculta cualquier elemento desbordado */
+    background: linear-gradient(135deg, var(--bg-darker), var(--bg-card)); /* Crea fondo degradado oscuro mientras carga la vista */
+} /* Cierra la clase .portfolio-image */
+
+.mockup-desktop { /* Selector que emula la carcasa de una pantalla de computadora */
+    width: 100%; /* Ocupa el ancho total del contenedor */
+    height: 100%; /* Ocupa el alto total */
+    border: 1px solid var(--border-color); /* Añade un marco fino emulando el bisel de la pantalla */
+    border-radius: 8px; /* Redondea las esquinas de la pantalla virtual en 8 píxeles */
+    overflow: hidden; /* Protege el contenido interno de la simulación */
+    margin: 10px; /* Margen de separación */
+    box-sizing: border-box; /* Recalcula tamaños incluyendo el contorno establecido */
+} /* Cierra la clase .mockup-desktop */
+
+.browser-bar { /* Selector para la barra superior decorativa que simula un navegador de internet (Chrome/Safari) */
+    background: rgba(0, 0, 0, 0.3); /* Color gris oscuro traslúcido para simular la barra de pestañas */
+    padding: 8px 12px; /* Margen interno cómodo */
+    display: flex; /* Activa Flexbox */
+    gap: 6px; /* Separa los círculos de control entre sí por 6 píxeles */
+    border-bottom: 1px solid var(--border-color); /* Línea que separa la barra simulada de la página de abajo */
+} /* Cierra la clase .browser-bar */
+
+.browser-bar span { /* Selector enfocado en simular los icónicos botones de cerrar, minimizar y maximizar del navegador */
+    width: 10px; /* Ancho minúsculo de 10 píxeles */
+    height: 10px; /* Alto minúsculo de 10 píxeles */
+    border-radius: 50%; /* Convierte cada punto en una perfecta burbuja circular */
+    background: rgba(255, 255, 255, 0.2); /* Color de relleno gris claro unificado */
+} /* Cierra el selector .browser-bar span */
+
+.mockup-content { /* Selector enfocado en el lienzo que muestra el diseño interno del sitio web simulado */
+    width: 100%; /* Cubre el ancho completo */
+    height: calc(100% - 30px); /* Calcula la altura restándole dinámicamente los 30px estimados de la barra del navegador */
+    background-size: 200% 200%; /* Duplica la escala del fondo para facilitar el efecto de movimiento del gradiente */
+    animation: gradient-shift 15s ease infinite; /* Ejecuta la animación de cambio de color por 15 segundos continuos */
+} /* Cierra la clase .mockup-content */
+
+@keyframes gradient-shift { /* Animación para hacer mutar de coordenadas el fondo abstracto del proyecto */
+    0% { background-position: 0% 50%; } /* Al inicio, el gradiente está inclinado a la izquierda */
+    50% { background-position: 100% 50%; } /* A la mitad del ciclo, el gradiente viaja al extremo derecho */
+    100% { background-position: 0% 50%; } /* Cierra volviendo suavemente a la izquierda original */
+} /* Cierra la animación @keyframes gradient-shift */
+
+.portfolio-info { /* Selector para el cajón de textos inferior explicativo del proyecto */
+    padding: var(--spacing-lg); /* Añade rellenos holgados con la variable grande */
+} /* Cierra la clase .portfolio-info */
+
+.portfolio-card h3 { /* Selector enfocado en el nombre del proyecto */
+    font-size: 1.3rem; /* Tamaño a 1.3rem */
+    font-family: var(--font-display); /* Fuente para títulos 'Poppins' */
+    font-weight: 700; /* Estilo negrita */
+    margin-bottom: var(--spacing-sm); /* Espaciado inferior de la variable corta */
+} /* Cierra el selector .portfolio-card h3 */
+
+.portfolio-card p { /* Selector enfocado en la descripción breve del proyecto */
+    color: var(--text-secondary); /* Tono gris claro */
+    margin-bottom: var(--spacing-md); /* Separa el texto de las métricas de abajo con la variable mediana */
+    font-size: 0.95rem; /* Tamaño de fuente equilibrado */
+} /* Cierra el selector .portfolio-card p */
+
+.portfolio-stats { /* Selector para la fila de métricas o resultados del proyecto (ej: +200% ROI) */
+    display: flex; /* Activa Flexbox para distribuir los resultados en paralelo */
+    gap: var(--spacing-md); /* Separa los bloques informativos con la variable mediana */
+    padding-top: var(--spacing-md); /* Rellena un espacio arriba antes de pintar la línea divisoria */
+    border-top: 1px solid var(--border-color); /* Línea divisoria muy fina superior */
+} /* Cierra la clase .portfolio-stats */
+
+.stat-item { /* Selector para cada columna de métrica individual */
+    display: flex; /* Activa Flexbox */
+    flex-direction: column; /* Apila la etiqueta descriptiva sobre el gran valor numérico */
+    gap: 4px; /* Pequeño espacio de 4 píxeles entre ambos textos */
+    flex: 1; /* Distribuye equitativamente el espacio entre todas las métricas de la fila */
+} /* Cierra la clase .stat-item */
+
+.stat-item .stat-label { /* Selector enfocado en la pequeña etiqueta de la métrica */
+    font-size: 0.8rem; /* Letra bien compacta de 0.8rem */
+    color: var(--text-secondary); /* Color de texto secundario */
+    text-transform: uppercase; /* Fuerza la visualización en letras mayúsculas */
+    letter-spacing: 0.5px; /* Espaciado sutil entre caracteres */
+} /* Cierra el selector .stat-item .stat-label */
+
+.stat-item .stat-value { /* Selector enfocado en el número/porcentaje de éxito de la métrica */
+    font-size: 1.2rem; /* Tamaño de letra destacado a 1.2rem */
+    font-weight: 700; /* Aplica peso negrita */
+    color: var(--accent-blue); /* Pinta el dato con el brillante color azul de acento */
+} /* Cierra el selector .stat-item .stat-value */
+
+/* ==========================================
+   PRECIOS
+   ========================================== */
+.precios { /* Selector para la sección que contiene los planes comerciales */
+    background: linear-gradient(180deg, rgba(10, 14, 39, 0.5) 0%, rgba(10, 14, 39, 0) 100%); /* Degradado de fondo vertical */
+    border-top: 1px solid var(--border-color); /* Contorno superior sutil */
+} /* Cierra la clase .precios */
+
+.pricing-grid { /* Selector para la rejilla organizadora de tarifas */
+    display: grid; /* Activa CSS Grid */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Columnas fluidas que miden mínimo 280px y se equilibran automáticas */
+    gap: var(--spacing-lg); /* Separa los planes con la variable de espacio grande */
+    max-width: 1100px; /* Limita el ancho de la zona de precios a un máximo de 1100 píxeles */
+    margin: 0 auto; /* Centra el bloque de precios en la pantalla */
+} /* Cierra la clase .pricing-grid */
+
+.pricing-card { /* Selector para las tarjetas de planes de precios individuales */
+    background: var(--bg-card); /* Color base traslúcido azul oscuro */
+    backdrop-filter: blur(20px); /* Filtro de desenfoque esmerilado */
+    border: 1px solid var(--border-color); /* Línea de borde inicial */
+    border-radius: 20px; /* Esquinas redondeadas a 20 píxeles */
+    padding: var(--spacing-lg); /* Relleno holgado con la variable de espacio grande */
+    position: relative; /* Contexto de posición requerido para la etiqueta superior flotante */
+    transition: all var(--transition-smooth); /* Cambios interactivos controlados por la transición intermedia */
+    display: flex; /* Activa Flexbox */
+    flex-direction: column; /* Alinea los elementos internos uno debajo de otro en columna */
+} /* Cierra la clase .pricing-card */
+
+.pricing-card:hover { /* Animación al posicionarse sobre la tarjeta */
+    border-color: var(--accent-blue); /* El contorno cambia al azul de acento */
+    transform: translateY(-10px); /* Eleva la tarjeta 10 píxeles */
+} /* Cierra el estado hover de .pricing-card */
+
+.pricing-card.featured { /* Selector específico para resaltar el plan más popular o recomendado */
+    border-color: var(--accent-blue); /* Fija el color de borde en azul desde el inicio */
+    transform: scale(1.05); /* Agranda la tarjeta un 5% de forma fija para darle mayor relevancia visual */
+    box-shadow: 0 20px 60px rgba(0, 217, 255, 0.3); /* Añade sombra resplandeciente azulada */
+} /* Cierra la clase .pricing-card.featured */
+
+.pricing-card.featured:hover { /* Efecto hover combinado para la tarjeta destacada */
+    transform: scale(1.05) translateY(-10px); /* Mantiene su tamaño agrandado fijo y añade elevación de 10px */
+} /* Cierra el estado hover combinado */
+
+.pricing-badge { /* Selector para la pequeña cinta o medalla ("Popular", "Recomendado") de la tarjeta destacada */
+    position: absolute; /* Desconecta el elemento y lo hace flotar libremente */
+    top: -15px; /* Lo coloca flotando exactamente a la mitad del borde superior de la tarjeta */
+    left: 50%; /* Lo desplaza al centro horizontal */
+    transform: translateX(-50%); /* Centra matemáticamente el elemento respecto a su propio ancho */
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); /* Fondo degradado llamativo */
+    color: var(--text-primary); /* Texto blanco */
+    padding: 6px 16px; /* Relleno interno refinado */
+    border-radius: 20px; /* Extremos circulares en forma de píldora */
+    font-size: 0.75rem; /* Tamaño de letra extra pequeño */
+    font-weight: 700; /* Texto en negrita intensa */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas estrictas */
+    letter-spacing: 1px; /* Añade espacio estético entre caracteres */
+} /* Cierra la clase .pricing-badge */
+
+.pricing-header { /* Selector para la caja superior que contiene el nombre del plan */
+    margin-bottom: var(--spacing-md); /* Separa el encabezado del precio usando la variable mediana */
+} /* Cierra la clase .pricing-header */
+
+.pricing-header h3 { /* Selector para el título del plan comercial */
+    font-size: 1.5rem; /* Tamaño de letra de 1.5rem */
+    font-family: var(--font-display); /* Fuente para títulos 'Poppins' */
+    font-weight: 700; /* Estilo negrita */
+    margin-bottom: var(--spacing-sm); /* Separa el nombre de la pequeña descripción con la variable corta */
+} /* Cierra el selector .pricing-header h3 */
+
+.pricing-desc { /* Selector para la breve descripción del tipo de cliente ideal para el plan */
+    color: var(--text-secondary); /* Color gris claro secundario */
+    font-size: 0.9rem; /* Tamaño de texto de 0.9rem */
+} /* Cierra la clase .pricing-desc */
+
+.pricing-price { /* Selector para el bloque contenedor del valor monetario */
+    font-size: 2.5rem; /* Tamaño de letra monumental de 2.5rem */
+    font-weight: 800; /* Peso tipográfico extra grueso */
+    margin-bottom: var(--spacing-lg); /* Separa el bloque de precios de la lista de pros con la variable grande */
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); /* Fondo degradado comercial */
+    -webkit-background-clip: text; /* Recorta el degradado a la silueta de los números */
+    -webkit-text-fill-color: transparent; /* Remueve color de texto nativo */
+    background-clip: text; /* Recorte estandarizado */
+} /* Cierra la clase .pricing-price */
+
+.currency { /* Selector para el símbolo de moneda ($, €, etc.) */
+    font-size: 1.2rem; /* Reduce el tamaño del símbolo comparado con los números gigantes */
+} /* Cierra la clase .currency */
+
+.amount { /* Selector para la cifra numérica exacta */
+    display: inline; /* Garantiza que se muestre en línea al lado del símbolo de moneda */
+} /* Cierra la clase .amount */
+
+.period { /* Selector para el texto de frecuencia temporal (ej: /mes, /año) */
+    font-size: 0.85rem; /* Letra pequeña aclaratoria */
+    color: var(--text-secondary); /* Color gris claro */
+    margin-left: var(--spacing-xs); /* Separación corta a la izquierda respecto a la cifra */
+} /* Cierra la clase .period */
+
+.pricing-features { /* Selector para la lista de ventajas o características incluidas en el plan */
+    list-style: none; /* Remueve los puntos por defecto de las listas */
+    margin-bottom: var(--spacing-lg); /* Deja un margen inferior abundante para respirar antes del botón */
+    flex-grow: 1; /* Propiedad mágica de Flexbox que estira esta sección para forzar que todos los botones de las tarjetas queden alineados abajo uniformemente */
+} /* Cierra la clase .pricing-features */
+
+.pricing-features li { /* Selector para cada ítem o beneficio listado */
+    padding: 10px 0; /* Relleno vertical de 10 píxeles */
+    color: var(--text-secondary); /* Color de texto gris claro */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Delicada línea divisoria inferior gris-blanca ultra transparente */
+    font-size: 0.95rem; /* Tamaño ergonómico */
+} /* Cierra el selector .pricing-features li */
+
+.pricing-features li:last-child { /* Selector específico para el último ítem de la lista */
+    border-bottom: none; /* Remueve la línea divisoria inferior para evitar redundancias visuales con el final de la caja */
+} /* Cierra el selector por pseudo-clase */
+
+.pricing-features li strong { /* Selector enfocado en resaltar palabras clave dentro de los beneficios */
+    color: var(--accent-blue); /* Pinta las palabras importantes en el color azul neón */
+} /* Cierra el selector .pricing-features li strong */
+
+/* ==========================================
+   CTA SECTION
+   ========================================== */
+.cta-section { /* Selector para la sección destacada de llamada final a la acción */
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); /* Asigna un fondo degradado brillante de gran impacto visual */
+    position: relative; /* Contexto de posición indispensable */
+    overflow: hidden; /* Recorta los círculos abstractos de luz clara para que no se desborden de la sección */
+} /* Cierra la clase .cta-section */
+
+.cta-section::before { /* Pseudo-elemento que simula un círculo de luz blanca suave arriba a la derecha */
+    content: ''; /* Campo funcional vacío */
+    position: absolute; /* Ubicación absoluta */
+    width: 400px; /* Ancho de 400 píxeles */
+    height: 400px; /* Alto de 400 píxeles */
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent); /* Gradiente de luz blanca ultra sutil que se difumina */
+    border-radius: 50%; /* Redondea a círculo perfecto */
+    top: -100px; /* Lo saca un poco hacia arriba */
+    right: -100px; /* Lo saca un poco a la derecha */
+} /* Cierra .cta-section::before */
+
+.cta-section::after { /* Pseudo-elemento que simula otro círculo luminoso abajo a la izquierda */
+    content: ''; /* Campo funcional vacío */
+    position: absolute; /* Ubicación absoluta */
+    width: 300px; /* Ancho de 300 píxeles */
+    height: 300px; /* Alto de 300 píxeles */
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05), transparent); /* Gradiente de luz blanca aún más sutil */
+    border-radius: 50%; /* Círculo perfecto */
+    bottom: -50px; /* Lo asoma por abajo */
+    left: -50px; /* Lo asoma por la izquierda */
+} /* Cierra .cta-section::after */
+
+.cta-content { /* Selector para la caja que envuelve los textos informativos finales */
+    position: relative; /* Contexto de posición */
+    z-index: 2; /* Eleva el contenido por encima de las luces decorativas blancas antes creadas */
+    text-align: center; /* Centra los párrafos y botones */
+    padding: var(--spacing-xl); /* Relleno interno masivo usando la variable de espacio extra grande */
+} /* Cierra la clase .cta-content */
+
+.cta-content h2 { /* Selector para el título de conversión final */
+    font-size: clamp(1.8rem, 5vw, 3rem); /* Escalabilidad adaptativa: mínimo 1.8rem, escala automática y tope en 3rem */
+    font-family: var(--font-display); /* Fuente para títulos 'Poppins' */
+    font-weight: 800; /* Estilo tipográfico extra grueso */
+    margin-bottom: var(--spacing-md); /* Margen inferior configurado con la variable mediana */
+    color: var(--bg-dark); /* Pinta el texto con un color oscuro para que contraste perfectamente sobre el fondo claro degradado */
+} /* Cierra el selector .cta-content h2 */
+
+.cta-content p { /* Selector para el párrafo que motiva la conversión final */
+    font-size: 1.1rem; /* Tamaño de fuente en 1.1rem */
+    margin-bottom: var(--spacing-lg); /* Separa el párrafo del botón usando la variable grande */
+    color: rgba(10, 14, 39, 0.8); /* Tono oscuro suavizado con un 80% de opacidad para mantener excelente legibilidad */
+} /* Cierra el selector .cta-content p */
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+.footer { /* Selector para la sección de pie de página institucional */
+    background: linear-gradient(180deg, rgba(5, 8, 16, 0.8), var(--bg-darker)); /* Degradado de fondo oscuro que se funde a negro total */
+    border-top: 1px solid var(--border-color); /* Línea de contorno superior divisoria sutil */
+    padding: var(--spacing-xl) 0; /* Relleno vertical abundante usando la variable extra grande y 0 a los lados */
+} /* Cierra la clase .footer */
+
+.footer-content { /* Selector para el contenedor de las columnas informativas del pie de página */
+    display: grid; /* Activa CSS Grid */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas responsivas automáticas de mínimo 250px de ancho */
+    gap: var(--spacing-lg); /* Separaciones entre columnas gestionadas por la variable grande */
+    margin-bottom: var(--spacing-xl); /* Espacio de separación antes de llegar a la barra de derechos de autor con la variable extra grande */
+} /* Cierra la clase .footer-content */
+
+.footer-column h4 { /* Selector para los títulos secundarios de cada sección del pie de página */
+    font-size: 1.1rem; /* Tamaño de fuente de 1.1rem */
+    font-family: var(--font-display); /* Fuente de títulos 'Poppins' */
+    font-weight: 700; /* Grosor de texto negrita */
+    margin-bottom: var(--spacing-md); /* Separa el título de sus enlaces inferiores usando la variable mediana */
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); /* Fondo degradado corporativo */
+    -webkit-background-clip: text; /* Recorta el degradado a la forma de las letras */
+    -webkit-text-fill-color: transparent; /* Transparencia nativa para habilitar el degradado */
+    background-clip: text; /* Recorte estándar moderno */
+} /* Cierra el selector .footer-column h4 */
+
+.footer-column p { /* Selector para párrafos introductorios breves dentro de las columnas */
+    color: var(--text-secondary); /* Tono gris claro secundario */
+    line-height: 1.8; /* Interlineado cómodo */
+    margin-bottom: var(--spacing-md); /* Margen de separación inferior */
+} /* Cierra el selector .footer-column p */
+
+.footer-column ul { /* Selector enfocado en limpiar las listas de enlaces que componen el pie de página */
+    list-style: none; /* Remueve los círculos o viñetas por defecto */
+} /* Cierra el selector .footer-column ul */
+
+.footer-column ul li { /* Selector enfocado en cada elemento de lista dentro del pie de página */
+    margin-bottom: var(--spacing-sm); /* Distribuye los enlaces verticalmente separándolos con la variable de espacio corto */
+} /* Cierra el selector .footer-column ul li */
+
+.footer-column ul li a { /* Selector enfocado en las etiquetas de hipervínculo de navegación del footer */
+    color: var(--text-secondary); /* Pinta los enlaces en color gris claro secundario por defecto */
+    text-decoration: none; /* Elimina la línea de subrayado común de los enlaces */
+    transition: color var(--transition-fast); /* Habilita que el cambio estético de color al pasar el cursor sea rápido y fluido */
+} /* Cierra el selector .footer-column ul li a */
+
+.footer-column ul li a:hover { /* Efecto visual cuando el usuario pasa el ratón por los enlaces del footer */
+    color: var(--accent-blue); /* Ilumina el texto del enlace cambiándolo al color azul neón */
+} /* Cierra el estado hover */
+
+.social-links { /* Selector para el contenedor de la botonera de redes sociales */
+    display: flex; /* Activa Flexbox para organizar los iconos de forma horizontal */
+    gap: var(--spacing-md); /* Separa los iconos entre sí usando el valor de la variable mediana */
+} /* Cierra la clase .social-links */
+
+.social-link { /* Selector enfocado en el botón circular individual de red social */
+    width: 40px; /* Ancho fijo de 40 píxeles */
+    height: 40px; /* Altura fija de 40 píxeles */
+    border: 1px solid var(--border-color); /* Contorno fino inicial gris-blanco */
+    border-radius: 50%; /* Transforma el contenedor en un círculo impecable */
+    display: flex; /* Activa Flexbox interno */
+    align-items: center; /* Centra el icono en el eje vertical */
+    justify-content: center; /* Centra el icono en el eje horizontal */
+    color: var(--text-secondary); /* El icono adopta el color gris claro */
+    text-decoration: none; /* Evita cualquier subrayado accidental */
+    transition: all var(--transition-fast); /* Permite cambios interactivos rápidos */
+} /* Cierra la clase .social-link */
+
+.social-link:hover { /* Efectos dinámicos al pasar el ratón sobre un icono de red social */
+    border-color: var(--accent-blue); /* El borde cambia al brillante color azul neón */
+    background: rgba(0, 217, 255, 0.1); /* Agrega un sutil fondo azul translúcido con 10% opacidad */
+    color: var(--accent-blue); /* Transforma el icono interno pintándolo en color azul neón */
+} /* Cierra el estado hover de .social-link */
+
+.footer-bottom { /* Selector para la franja inferior absoluta donde va el Copyright y políticas */
+    text-align: center; /* Centra el texto de propiedad intelectual */
+    padding-top: var(--spacing-lg); /* Separa la franja de los contenidos superiores con la variable de espacio grande */
+    border-top: 1px solid var(--border-color); /* Agrega una línea fina superior divisoria */
+    color: var(--text-secondary); /* Color de texto gris secundario */
+    font-size: 0.9rem; /* Letra compacta e informativa de 0.9rem */
+} /* Cierra la clase .footer-bottom */
+
+/* ==========================================
+   ANIMACIONES DE REVEAL
+   ========================================== */
+.reveal-text, /* Agrupación de clases que se benefician del efecto de revelado suave al cargar o hacer scroll */
+.reveal-fade, /* Estilo general */
+.reveal-card, /* Estilo general */
+.reveal-timeline { /* Estilo general */
+    opacity: 0; /* Inician invisibles por completo */
+    animation: reveal-animation 1s ease-out forwards; /* Ejecuta la animación 'reveal-animation' por 1 segundo, con suavizado de salida y se queda fija en su estado final */
+} /* Cierra el bloque común de revelado */
+
+@keyframes reveal-animation { /* Declaración de fotogramas clave para simular el nacimiento o aparición ascendente */
+    from { /* Punto de partida del elemento animado */
+        opacity: 0; /* Totalmente transparente */
+        transform: translateY(30px); /* Desplazado 30 píxeles hacia abajo de su posición real */
+    } /* Cierra el fotograma inicial */
+    to { /* Destino final de la animación */
+        opacity: 1; /* Completamente visible */
+        transform: translateY(0); /* Regresa a su posición original matemática libre de desfases */
+    } /* Cierra el fotograma final */
+} /* Cierra @keyframes reveal-animation */
+
+/* Delays para efecto cascada */
+.hero-title { /* Retraso para el título principal */
+    animation-delay: 0.2s; /* Retarda el inicio de su animación 0.2 segundos para secuenciar la carga */
+} /* Cierra el retraso del título */
+
+.hero-subtitle { /* Retraso para el subtítulo explicativo */
+    animation-delay: 0.4s; /* Arranca su animación a los 0.4 segundos */
+} /* Cierra el retraso del subtítulo */
+
+.hero-buttons { /* Retraso para el bloque de botones */
+    animation-delay: 0.6s; /* Arranca su animación a los 0.6 segundos */
+} /* Cierra el retraso de botones */
+
+.hero-stats { /* Retraso para las métricas e indicadores */
+    animation-delay: 0.8s; /* Arranca su animación a los 0.8 segundos de completada la carga inicial */
+} /* Cierra el retraso de estadísticas */
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+@media (max-width: 768px) { /* Media Query: Aplica las siguientes reglas de diseño solo si la pantalla mide 768 píxeles o menos (Tablets y Móviles) */
+    .nav-menu { /* Modificaciones en el menú de navegación para pantallas táctiles reducidas */
+        position: fixed; /* Se desconecta y se fija como pantalla completa flotante */
+        left: -100%; /* Se esconde completamente empujándose fuera de la pantalla por el lado izquierdo */
+        top: 80px; /* Se posiciona justo debajo de la barra de navegación superior fija */
+        flex-direction: column; /* Cambia el menú horizontal a una distribución vertical en lista */
+        background-color: rgba(5, 8, 16, 0.95); /* Fondo oscuro profundo sólido con 95% de opacidad */
+        width: 100%; /* Se expande cubriendo todo el ancho de la pantalla táctil */
+        text-align: center; /* Centra los enlaces del menú vertical */
+        transition: 0.3s; /* Animación de despliegue suave de 0.3 segundos */
+        padding: var(--spacing-lg) 0; /* Relleno vertical ergonómico controlado por la variable grande */
+        gap: var(--spacing-md); /* Separa los enlaces de forma amplia en vertical usando la variable mediana */
+        backdrop-filter: blur(20px); /* Aplica efecto cristal traslúcido de fondo al menú móvil */
+    } /* Cierra la clase .nav-menu modificada */
+
+    .nav-menu.active { /* Clase activada mediante JavaScript al pulsar el icono hamburguesa */
+        left: 0; /* Regresa a la coordenada 0, mostrándose mágicamente en la pantalla de lado a lado */
+    } /* Cierra la clase .nav-menu.active */
+
+    .menu-toggle { /* Visualización del botón hamburguesa ocultado en escritorios */
+        display: flex; /* Se vuelve visible activando Flexbox en móviles */
+    } /* Cierra la clase .menu-toggle modificada */
+
+    .menu-toggle.active span:nth-child(1) { /* Animación para la primera barrita cuando el menú está abierto (.active) */
+        transform: rotate(45deg) translate(8px, 8px); /* Rota la barrita 45 grados y la traslada para formar una aspa (X) */
+    } /* Cierra la regla */
+
+    .menu-toggle.active span:nth-child(2) { /* Animación para la barrita intermedia con el menú abierto */
+        opacity: 0; /* Desvanece por completo la línea del centro para dar espacio al aspa */
+    } /* Cierra la regla */
+
+    .menu-toggle.active span:nth-child(3) { /* Animación para la tercera barrita con el menú abierto */
+        transform: rotate(-45deg) translate(7px, -7px); /* Rota la barrita en sentido inverso -45 grados para completar el aspa (X) */
+    } /* Cierra la regla */
+
+    .nav-cta { /* Modificaciones en el botón de conversión dentro del menú móvil */
+        margin-left: 0; /* Remueve el margen de separación izquierdo innecesario en vertical */
+    } /* Cierra la clase .nav-cta modificada */
+
+    .hero-title { /* Adaptación del título del hero en pantallas pequeñas */
+        font-size: 2rem; /* Achica drásticamente la tipografía a un tamaño fijo de 2rem para que no se corte */
+    } /* Cierra la clase .hero-title modificada */
+
+    .hero-buttons { /* Adaptación de la zona de botones en pantallas móviles */
+        flex-direction: column; /* Apila los botones de forma vertical uno sobre otro */
+    } /* Cierra la clase .hero-buttons modificada */
+
+    .btn-cta, /* Agrupación de botones móviles para optimizar la usabilidad táctil */
+    .btn-primary, /* Clases afectadas */
+    .btn-secondary { /* Clases afectadas */
+        width: 100%; /* Obliga a todos los botones a expandirse al 100% de la anchura del teléfono */
+    } /* Cierra el bloque común de botones modificados */
+
+    .hero-stats { /* Adaptación de las estadísticas generales en móviles */
+        flex-direction: column; /* Apila los datos estadísticos de forma vertical */
+        gap: var(--spacing-md); /* Reduce el espaciado entre métricas usando la variable mediana */
+    } /* Cierra la clase .hero-stats modificada */
+
+    .servicios-grid, /* Conversión de rejillas de varias columnas a filas de una sola columna */
+    .portfolio-grid, /* Clases afectadas */
+    .pricing-grid { /* Clases afectadas */
+        grid-template-columns: 1fr; /* Fuerza una distribución estricta de una sola columna para leer de arriba a abajo */
+    } /* Cierra el bloque de grids unificados */
+
+    .pricing-card.featured { /* Modificación del plan de precios destacado en móviles */
+        transform: scale(1); /* Desactiva el aumento de tamaño estático del 5% para que no rompa el diseño vertical */
+    } /* Cierra la clase .pricing-card.featured modificada */
+
+    .pricing-card.featured:hover { /* Efecto interactivo del plan destacado en móviles */
+        transform: translateY(-10px); /* Solo permite la elevación simple de 10px sin multiplicadores de escala */
+    } /* Cierra el estado hover modificado */
+
+    .timeline::before { /* Ajuste en la barra vertical de la línea de tiempo en móviles */
+        left: 10px; /* Centra y acerca más el hilo conductor hacia el borde izquierdo reduciendo espacio */
+    } /* Cierra la regla */
+
+    .timeline-item { /* Ajuste en los bloques de pasos de la línea de tiempo en móviles */
+        margin-left: 60px; /* Reduce la sangría de separación izquierda para aprovechar mejor las pantallas angostas */
+    } /* Cierra la clase .timeline-item modificada */
+
+    .timeline-marker { /* Ajuste de las viñetas circulares del timeline en móviles */
+        left: -45px; /* Modifica su ubicación para encajar con precisión encima del hilo acortado */
+        width: 30px; /* Reduce el diámetro a 30 píxeles */
+        height: 30px; /* Reduce el alto a 30 píxeles */
+    } /* Cierra la clase .timeline-marker modificada */
+
+    .timeline-number { /* Ajuste para el identificador decorativo en móviles */
+        font-size: 2rem; /* Achica el número de fondo a 2rem para mantener armonía visual */
+    } /* Cierra la clase .timeline-number modificada */
+
+    .footer-content { /* Ajuste para el pie de página en móviles */
+        grid-template-columns: 1fr; /* Apila todas las columnas del footer en una sola gran columna vertical */
+    } /* Cierra la clase .footer-content modificada */
+
+    section { /* Ajuste de espaciados generales de secciones en móviles */
+        padding: var(--spacing-lg) 0; /* Reduce los rellenos internos de arriba/abajo usando la variable grande */
+    } /* Cierra la sección modificada */
+} /* Cierra el bloque completo de la Media Query de 768px */
+
+@media (max-width: 480px) { /* Media Query: Aplica las siguientes reglas ultra específicas solo en smartphones pequeños (480 píxeles o menos) */
+    :root { /* Redefinición de variables globales de espaciado en teléfonos compactos */
+        --spacing-md: 1.5rem; /* El espacio mediano se reduce de 2rem a 1.5rem para ahorrar píxeles valiosos */
+        --spacing-lg: 2rem; /* El espacio grande se reduce de 3rem a 2rem */
+    } /* Cierra el bloque :root modificado */
+
+    .container { /* Ajustes para el contenedor general en smartphones */
+        padding: 0 var(--spacing-sm); /* Reduce los rellenos laterales a la variable de tamaño pequeño */
+    } /* Cierra la clase .container modificada */
+
+    .hero { /* Ajuste de altura inicial en smartphones */
+        padding-top: 60px; /* Reduce el espacio superior de protección a 60px ya que el menú se compacta */
+    } /* Cierra la clase .hero modificada */
+
+    .hero-title { /* Reducción de escala para el título de bienvenida */
+        font-size: 1.5rem; /* Ajusta la fuente del encabezado principal a 1.5rem fijas para evitar desbordes */
+    } /* Cierra la clase .hero-title modificada */
+
+    .section-title { /* Reducción de escala para los títulos de cada sección */
+        font-size: 1.5rem; /* Estabiliza el tamaño a 1.5rem */
+    } /* Cierra la clase .section-title modificada */
+
+    .logo-img { /* Ajuste de dimensiones en el logo para teléfonos chicos */
+        height: 30px; /* Achica la imagen del logotipo a 30 píxeles de altura */
+    } /* Cierra la clase .logo-img modificada */
+
+    .logo-text { /* Optimización de espacio crítico en la cabecera móvil */
+        display: none; /* Esconde por completo el texto del logotipo, dejando solo el icono visible en pantallas diminutas */
+    } /* Cierra la clase .logo-text modificada */
+
+    .service-card, /* Optimización de relleno interno en todas las tarjetas de información para smartphones */
+    .timeline-item, /* Clases afectadas */
+    .portfolio-card, /* Clases afectadas */
+    .pricing-card { /* Clases afectadas */
+        padding: var(--spacing-md); /* Asigna el nuevo valor comprimido de la variable mediana a los rellenos internos */
+    } /* Cierra las tarjetas modificadas */
+
+    .btn-cta, /* Compactación del tamaño de los botones en smartphones pequeños */
+    .btn-primary, /* Clases afectadas */
+    .btn-secondary { /* Clases afectadas */
+        padding: 12px 24px; /* Disminuye el relleno interno de botones a 12px vertical y 24px horizontal */
+        font-size: 0.9rem; /* Reduce levemente el tamaño de texto a 0.9rem */
+    } /* Cierra los botones modificados */
+
+    .cta-content h2 { /* Ajuste fino de escala para el llamado a la acción de conversión en teléfonos pequeños */
+        font-size: 1.5rem; /* Deja el título final en 1.5rem */
+    } /* Cierra la clase modificada */
+} /* Cierra el bloque completo de la Media Query de 480px */
+
+/* ==========================================
+   MODO OSCURO / SCROLL SUAVE
+   ========================================== */
+::-webkit-scrollbar { /* Pseudo-elemento para dar estilo y cambiar el diseño de la barra de desplazamiento lateral del navegador */
+    width: 10px; /* Asigna un ancho controlado de 10 píxeles a la barra de desplazamiento */
+} /* Cierra el selector */
+
+::-webkit-scrollbar-track { /* Selector enfocado en el canal o riel de fondo por donde se desliza la barra */
+    background: var(--bg-dark); /* Pinta el fondo del canal con el color oscuro principal de las variables */
+} /* Cierra el selector */
+
+::-webkit-scrollbar-thumb { /* Selector enfocado en la manija, pastilla o bloque móvil que arrastra el usuario */
+    background: linear-gradient(180deg, var(--accent-blue), var(--accent-purple)); /* Rellena el bloque móvil con el degradado azul-morado */
+    border-radius: 10px; /* Redondea los extremos del tirador en 10 píxeles */
+} /* Cierra el selector */
+
+::-webkit-scrollbar-thumb:hover { /* Efecto visual cuando pasas el ratón encima del tirador de la barra de scroll */
+    background: linear-gradient(180deg, var(--accent-purple), var(--accent-pink)); /* Cambia drásticamente el degradado de tonos morados a rosas vibrantes */
+} /* Cierra el estado hover */
+
+/* Selección de texto */
+::selection { /* Pseudo-elemento que controla el aspecto estético del texto cuando el usuario lo resalta o selecciona con el ratón */
+    background: rgba(0, 217, 255, 0.3); /* Pinta el fondo del texto seleccionado con un azul neón translúcido (30% opacidad) */
+    color: var(--text-primary); /* Mantiene el texto seleccionado de color blanco */
+} /* Cierra el selector ::selection */
+
+/* Placeholder */
+::placeholder { /* Pseudo-elemento enfocado en controlar las tipografías informativas grises por defecto dentro de las cajas de texto de formularios */
+    color: var(--text-secondary); /* Pinta las guías/marcas de agua del formulario en color gris claro secundario */
+} /* Cierra el selector ::placeholder */
+
+/* Focus styles */
+a:focus, /* Agrupación para mejorar la accesibilidad del sitio al navegar usando el teclado (tecla TAB) */
+button:focus { /* Elementos afectados */
+    outline: 2px solid var(--accent-blue); /* Dibuja un contorno exterior sólido de 2 píxeles azul neón al enfocarse */
+    outline-offset: 2px; /* Separa el contorno 2 píxeles hacia afuera del botón o enlace para que respire */
+} /* Cierra el bloque focus */
+
+/* ==========================================
+   CONTACT FORM STYLES
+   ========================================== */
+
+.contact-form-wrapper { /* Selector para la caja protectora envolvente del formulario de contacto */
+    max-width: 700px; /* Fija un ancho máximo ergonómico de 700 píxeles para el formulario */
+    margin: 3rem auto 0; /* Asigna 3rem de margen arriba, centra horizontalmente a los lados y 0 abajo */
+    background: rgba(15, 19, 45, 0.5); /* Asigna fondo azul oscuro traslúcido con un 50% de opacidad */
+    border: 1px solid var(--border-color); /* Añade un marco delgado blanco traslúcido */
+    border-radius: 12px; /* Redondea las esquinas del envoltorio en 12 píxeles */
+    padding: 3rem 2rem; /* Relleno abundante interno: 3rem vertical y 2rem horizontal */
+    backdrop-filter: blur(10px); /* Efecto cristal esmerilado de 10px en el fondo del formulario */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* Aplica una sombra suave y extendida oscura abajo */
+} /* Cierra la clase .contact-form-wrapper */
+
+.contact-form { /* Selector para la etiqueta del formulario nativo */
+    display: flex; /* Activa el modelo Flexbox */
+    flex-direction: column; /* Apila todas las celdas y preguntas una debajo de otra en columna vertical */
+    gap: 1.5rem; /* Inserta un espacio constante de 1.5rem entre cada pregunta del formulario */
+} /* Cierra la clase .contact-form */
+
+.form-group { /* Selector para el bloque que une una etiqueta (label) con su respectiva caja de entrada (input) */
+    display: flex; /* Activa Flexbox */
+    flex-direction: column; /* Apila el título arriba del campo de texto de forma ordenada */
+    gap: 0.6rem; /* Deja un espacio controlado de 0.6rem entre la etiqueta informativa y el campo para rellenar */
+} /* Cierra la clase .form-group */
+
+.form-group label { /* Selector enfocado en el texto del título del campo de entrada */
+    font-size: 0.95rem; /* Tamaño de fuente refinado a 0.95rem */
+    font-weight: 500; /* Grosor tipográfico medio */
+    color: var(--text-primary); /* Color blanco principal */
+    font-family: var(--font-display); /* Utiliza la fuente de títulos 'Poppins' */
+} /* Cierra el selector .form-group label */
+
+.form-group input, /* Agrupación de controles de campos para formatear sus diseños de forma unificada */
+.form-group select, /* Campos de texto */
+.form-group textarea { /* Áreas de texto amplio */
+    padding: 0.9rem 1rem; /* Relleno ergonómico para escribir cómodo: 0.9rem vertical y 1rem lateral */
+    border: 1px solid var(--border-color); /* Borde sutil inicial traslúcido */
+    border-radius: 8px; /* Redondea las esquinas de los campos en 8 píxeles */
+    background: rgba(255, 255, 255, 0.05); /* Fondo ultra sutil blanco transparente (5% de opacidad) */
+    color: var(--text-primary); /* Garantiza que las letras escritas por el usuario sean de color blanco */
+    font-family: var(--font-primary); /* Forzar el uso de la fuente primaria 'Inter' al digitar */
+    font-size: 0.95rem; /* Tamaño de letra consistente de 0.95rem */
+    transition: all var(--transition-fast); /* Hace que las respuestas luminosas de foco se animen con velocidad rápida */
+} /* Cierra el bloque común de campos de formulario */
+
+.form-group input::placeholder, /* Agrupación para estilizar las marcas de agua de los campos de texto del formulario */
+.form-group textarea::placeholder { /* Aplica al área de texto */
+    color: var(--text-secondary); /* Color gris claro secundario para los textos de ejemplo */
+} /* Cierra la regla de placeholders */
+
+.form-group input:focus, /* Configuración estética de respuesta inmediata cuando el usuario hace clic o se posiciona para escribir en un campo */
+.form-group select:focus, /* Estados focus */
+.form-group textarea:focus { /* Estados focus */
+    outline: none; /* Elimina el contorno negro o azul tosco predeterminado por los sistemas operativos */
+    border-color: var(--accent-blue); /* Cambia el color de borde de la caja al azul neón de acento */
+    background: rgba(0, 217, 255, 0.05); /* Tinta el fondo con un destello azul traslúcido muy ligero */
+    box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1); /* Agrega un anillo de luz exterior azul sutil de 3px de grosor */
+} /* Cierra el estado focus de campos */
+
+.form-group textarea { /* Selector específico para personalizar el campo de comentarios extensos */
+    resize: vertical; /* Restringe el redimensionamiento del usuario permitiendo que solo estire el campo de forma vertical (arriba/abajo) */
+    min-height: 120px; /* Asegura una altura mínima por defecto de 120 píxeles para que se vea espacioso */
+    font-family: var(--font-primary); /* Reafirma la tipografía primaria */
+} /* Cierra la personalización de textarea */
+
+.form-group.checkbox { /* Selector específico para la celda de aceptación de términos (Checkbox) */
+    flex-direction: row; /* Cambia la alineación forzando a poner la cajita al lado del texto informador en una fila */
+    align-items: center; /* Alinea verticalmente al centro la cajita cuadrada con el texto de la cláusula */
+    gap: 0.8rem; /* Deja un espacio prudencial de 0.8rem entre el cuadro y las palabras */
+} /* Cierra la clase .form-group.checkbox */
+
+.form-group.checkbox input[type="checkbox"] { /* Selector enfocado directamente en el control del cuadrito de marcar */
+    width: 20px; /* Fuerza un ancho cómodo y cliqueable de 20 píxeles */
+    height: 20px; /* Fuerza una altura simétrica de 20 píxeles */
+    cursor: pointer; /* Cambia el puntero al icono de mano interactiva */
+    accent-color: var(--accent-blue); /* Pinta el check interno y el relleno del cuadro de color azul neón al estar activado */
+} /* Cierra la regla */
+
+.form-group.checkbox label { /* Selector enfocado en el texto adjunto al checkbox */
+    margin: 0; /* Remueve márgenes adicionales */
+    font-size: 0.9rem; /* Aplica una escala sutil de 0.9rem */
+    cursor: pointer; /* Permite que al hacer clic sobre las letras también se active el checkbox enlazado */
+} /* Cierra la regla */
+
+.btn-large { /* Regla modificadora e imperativa sobre los botones de gran tamaño del formulario */
+    padding: 1rem 2rem !important; /* Forza de manera estricta el relleno a 1rem vertical y 2rem horizontal ignorando otros estilos */
+    font-size: 1rem !important; /* Fuerza de manera estricta que la escala del texto sea exactamente 1rem */
+    font-weight: 600; /* Seminegrita */
+    width: 100%; /* El botón se estira a ocupar todo el espacio inferior del formulario */
+    border: none; /* Sin bordes nítidos */
+    cursor: pointer; /* Puntero en forma de mano */
+} /* Cierra la clase .btn-large */
+
+.form-message { /* Selector para la línea de texto que avisa el estado del envío (éxito o fallo) */
+    text-align: center; /* Centra el aviso en medio del formulario */
+    font-size: 0.9rem; /* Tamaño de letra sutil de 0.9rem */
+    margin-top: 1rem; /* Separa el aviso 1rem respecto al botón superior */
+    min-height: 20px; /* Fija una altura mínima constante de 20px para prevenir saltos bruscos en el diseño al mostrarse el texto */
+} /* Cierra la clase .form-message */
+
+.form-message.success { /* Clase complementaria cuando el mensaje notifica que el correo se envió correctamente */
+    color: #10b981; /* Pinta las letras del aviso en un tono verde esmeralda de éxito */
+} /* Cierra la clase .form-message.success */
+
+.form-message.error { /* Clase complementaria cuando el mensaje notifica que hubo un error técnico */
+    color: #ef4444; /* Pinta las letras del aviso en un tono rojo vibrante de alerta */
+} /* Cierra la clase .form-message.error */
+
+/* Responsive */
+@media (max-width: 768px) { /* Media Query: Ajustes específicos del formulario para tablets y dispositivos móviles */
+    .contact-form-wrapper { /* Compactación del envoltorio en móviles */
+        padding: 2rem 1.5rem; /* Disminuye los rellenos internos a 2rem verticales y 1.5rem laterales para ganar espacio */
+        margin: 2rem auto 0; /* Modifica el margen superior reduciéndolo a 2rem */
+    } /* Cierra la clase modificada */
+    
+    .form-group { /* Ajuste de rejilla interna */
+        gap: 0.5rem; /* Ajusta sutilmente el espacio entre etiquetas e inputs a 0.5rem */
+    } /* Cierra la clase modificada */
+    
+    .form-group label { /* Tamaño de fuentes de etiquetas en móviles */
+        font-size: 0.9rem; /* Disminuye la fuente a un tamaño de 0.9rem */
+    } /* Cierra el selector modificado */
+    
+    .form-group input, /* Ajuste de dimensiones de todos los campos para optimizar el tipeo en pantallas táctiles */
+    .form-group select, /* Elementos afectados */
+    .form-group textarea { /* Elementos afectados */
+        font-size: 0.9rem; /* Achica el texto interno a 0.9rem */
+        padding: 0.8rem 0.9rem; /* Reduce sutilmente el grosor de los campos a 0.8rem vertical y 0.9rem de los lados */
+    } /* Cierra el bloque común modificado */
+} /* Cierra la Media Query de respuesta de formulario */
+
+} /* Cierra la llave de cierre del documento CSS */
