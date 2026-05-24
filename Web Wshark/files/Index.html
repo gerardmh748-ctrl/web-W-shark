@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+
+<!-- Apertura del documento HTML con idioma español definido -->
+<html lang="es">
+
+<!-- ============================
+     HEAD - Metadatos y recursos
+     ============================ -->
+<head>
+
+    <!-- Codificación UTF-8 y viewport responsive para adaptarse a cualquier dispositivo -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Meta descripción para SEO: texto que aparece en los resultados de búsqueda de Google -->
+    <meta name="description" content="W SHARK - Webs de Alto Rendimiento Impulsadas por IA. Experiencias web escalables, automatizadas y optimizadas para SEO.">
+
+    <!-- Título de la pestaña del navegador -->
+    <title>W SHARK - Webs de Alto Rendimiento Impulsadas por IA</title>
+
+    <!-- Carga de fuentes tipográficas desde Google Fonts: Inter y Poppins con múltiples pesos -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Hoja de estilos principal del proyecto -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<!-- ============================
+     BODY - Contenido visible
+     ============================ -->
+<body>
+
+    <!-- ============================
+         NAVBAR - Barra de navegación
+         ============================ -->
+
+    <!-- Barra de navegación fija con id para manipulación desde JavaScript -->
+    <nav class="navbar" id="navbar">
+
+        <div class="navbar-container">
+
+            <!-- Logo: imagen + texto del nombre de la marca -->
+            <div class="logo">
+                <img src="assets/logo.png" alt="W SHARK" class="logo-img">
+                <span class="logo-text">W SHARK</span>
+            </div>
+
+            <!-- Botón hamburguesa (tres líneas) que aparece en móvil para abrir/cerrar el menú -->
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- Menú de navegación con enlaces ancla a cada sección de la página y botón CTA "Empezar" -->
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                <li><a href="#metodologia" class="nav-link">Cómo Funciona</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#precios" class="nav-link">Precios</a></li>
+                <li><a href="#contacto" class="btn-cta nav-cta">Empezar</a></li>
+            </ul>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ============================
+         HERO SECTION - Portada principal
+         ============================ -->
+
+    <section class="hero" id="hero">
+
+        <!-- Fondo decorativo con tres esferas de gradiente animadas -->
+        <div class="hero-background">
+            <div class="gradient-sphere gradient-1"></div>
+            <div class="gradient-sphere gradient-2"></div>
+            <div class="gradient-sphere gradient-3"></div>
+        </div>
+
+        <!-- Canvas para la animación de partículas, controlada desde script.js -->
+        <canvas id="particleCanvas"></canvas>
+
+        <!-- Contenido principal del hero: título, subtítulo, botones de acción y estadísticas -->
+        <div class="hero-content">
+
+            <!-- Título principal con animación de entrada y texto destacado en color -->
+            <h1 class="hero-title reveal-text">
+                Webs de Alto Rendimiento <br>
+                <span class="highlight">Impulsadas por IA</span>
+            </h1>
+
+            <!-- Subtítulo descriptivo del servicio con animación fade -->
+            <p class="hero-subtitle reveal-fade">
+                Experiencias web escalables, automatizadas y optimizadas para SEO. 
+                Transformamos tu visión digital en soluciones tecnológicas que generan resultados measurables.
+            </p>
+
+            <!-- Botones de llamada a la acción: consulta gratuita y ver portfolio -->
+            <div class="hero-buttons reveal-fade">
+                <button class="btn-cta btn-primary">Consulta Gratuita</button>
+                <button class="btn-secondary">Descubre Nuestro Trabajo</button>
+            </div>
+
+            <!-- Estadísticas destacadas: proyectos completados, satisfacción de clientes y tiempo de carga -->
+            <div class="hero-stats reveal-fade">
+                <div class="stat">
+                    <span class="stat-number">150+</span>
+                    <span class="stat-label">Proyectos</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">98%</span>
+                    <span class="stat-label">Satisfacción</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">3.2s</span>
+                    <span class="stat-label">Tiempo Carga</span>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ============================
+         SERVICIOS - Tarjetas de servicios
+         ============================ -->
+
+    <section class="servicios" id="servicios">
+
+        <div class="container">
+
+            <!-- Encabezado de sección con título y descripción -->
+            <div class="section-header">
+                <h2 class="section-title">Nuestros Servicios</h2>
+                <p class="section-description">Soluciones tecnológicas diseñadas para tu crecimiento exponencial</p>
+            </div>
+
+            <!-- Grid de tres tarjetas de servicio: Diseño Web, SEO Avanzado y Automatización con IA.
+                 Cada tarjeta incluye un icono SVG, título, descripción y etiquetas de características. -->
+            <div class="servicios-grid">
+
+                <!-- Tarjeta 1: Diseño Web Premium -->
+                <div class="service-card reveal-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <path d="M3 9h18M9 3v18"/>
+                        </svg>
+                    </div>
+                    <h3>Diseño Web Premium</h3>
+                    <p>Interfaces minimalistas y elegantes que convierten visitantes en clientes. Cada píxel diseñado estratégicamente para máxima conversión y experiencia de usuario excepcional.</p>
+                    <div class="service-features">
+                        <span class="feature-tag">Glassmorphism</span>
+                        <span class="feature-tag">Responsivo</span>
+                        <span class="feature-tag">Accesible</span>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2: SEO Avanzado -->
+                <div class="service-card reveal-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="1"/>
+                            <path d="M4.22 4.22a8 8 0 1 1 11.31 11.31M12 2v10"/>
+                            <path d="M12 12v10"/>
+                        </svg>
+                    </div>
+                    <h3>SEO Avanzado</h3>
+                    <p>Estrategias SEO integral que posicionan tu marca en la cima de Google. Análisis profundo de palabras clave, optimización técnica y contenido estratégico impulsado por datos.</p>
+                    <div class="service-features">
+                        <span class="feature-tag">Top Google</span>
+                        <span class="feature-tag">Tráfico Orgánico</span>
+                        <span class="feature-tag">Conversiones</span>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3: Automatización con IA -->
+                <div class="service-card reveal-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M2 12h20M6 6l12 12M18 6l-12 12"/>
+                        </svg>
+                    </div>
+                    <h3>Automatización con IA</h3>
+                    <p>Sistemas inteligentes que automatizan procesos, mejoran eficiencia y escalan tu negocio. Chatbots, análisis predictivo y soluciones personalizadas con machine learning.</p>
+                    <div class="service-features">
+                        <span class="feature-tag">Machine Learning</span>
+                        <span class="feature-tag">Chatbots</span>
+                        <span class="feature-tag">Analytics</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ============================
+         METODOLOGÍA - Proceso de trabajo
+         ============================ -->
+
+    <section class="metodologia" id="metodologia">
+
+        <div class="container">
+
+            <!-- Encabezado de sección con título y descripción -->
+            <div class="section-header">
+                <h2 class="section-title">Nuestro Proceso</h2>
+                <p class="section-description">Metodología probada que garantiza resultados excepcionales</p>
+            </div>
+
+            <!-- Timeline de 4 pasos que explica el proceso de trabajo:
+                 consulta, desarrollo, optimización y lanzamiento.
+                 Cada item incluye un marcador visual, título, descripción y número de paso. -->
+            <div class="timeline">
+
+                <!-- Paso 01: Consulta Estratégica -->
+                <div class="timeline-item reveal-timeline">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Consulta Estratégica</h3>
+                        <p>Analizamos tus objetivos, competencia y oportunidades. Definimos una estrategia personalizada basada en datos y visión compartida.</p>
+                        <span class="timeline-number">01</span>
+                    </div>
+                </div>
+
+                <!-- Paso 02: Desarrollo IA -->
+                <div class="timeline-item reveal-timeline">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Desarrollo IA</h3>
+                        <p>Construimos tu plataforma con tecnologías cutting-edge. Integramos sistemas de IA para automatización, personalización y escalabilidad infinita.</p>
+                        <span class="timeline-number">02</span>
+                    </div>
+                </div>
+
+                <!-- Paso 03: Optimización Total -->
+                <div class="timeline-item reveal-timeline">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Optimización Total</h3>
+                        <p>Realizamos testing exhaustivo, optimizamos velocidad, SEO y conversión. Cada elemento se perfecciona para máximo rendimiento.</p>
+                        <span class="timeline-number">03</span>
+                    </div>
+                </div>
+
+                <!-- Paso 04: Lanzamiento y Evolución continua -->
+                <div class="timeline-item reveal-timeline">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Lanzamiento & Evolución</h3>
+                        <p>Desplegamos con éxito en producción. Monitoreo continuo, análisis de datos y mejoras constantes para mantener ventaja competitiva.</p>
+                        <span class="timeline-number">04</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ============================
+         PORTFOLIO - Casos de éxito
+         ============================ -->
+
+    <section class="portfolio" id="portfolio">
+
+        <div class="container">
+
+            <!-- Encabezado de sección con título y descripción -->
+            <div class="section-header">
+                <h2 class="section-title">Nuestro Portfolio</h2>
+                <p class="section-description">Casos de éxito que demuestran nuestra excelencia</p>
+            </div>
+
+            <!-- Grid de tres proyectos destacados. Cada tarjeta muestra un mockup de navegador,
+                 nombre del proyecto, descripción breve y métricas de rendimiento (velocidad, SEO, conversión). -->
+            <div class="portfolio-grid">
+
+                <!-- Proyecto 1: TechVentures Labs -->
+                <div class="portfolio-card reveal-card">
+                    <div class="portfolio-image">
+                        <div class="mockup-desktop">
+                            <div class="browser-bar">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="mockup-content gradient-1"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>TechVentures Labs</h3>
+                        <p>Plataforma SaaS con dashboard predictivo impulsado por IA</p>
+                        <div class="portfolio-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Velocidad</span>
+                                <span class="stat-value">0.9s</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">SEO Score</span>
+                                <span class="stat-value">98/100</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Conversión</span>
+                                <span class="stat-value">+340%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 2: InnovaStore Digital -->
+                <div class="portfolio-card reveal-card">
+                    <div class="portfolio-image">
+                        <div class="mockup-desktop">
+                            <div class="browser-bar">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="mockup-content gradient-2"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>InnovaStore Digital</h3>
+                        <p>E-commerce escalable con automatización de inventario IA</p>
+                        <div class="portfolio-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Velocidad</span>
+                                <span class="stat-value">1.1s</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">SEO Score</span>
+                                <span class="stat-value">96/100</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Ventas</span>
+                                <span class="stat-value">+520%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 3: CloudSync Pro -->
+                <div class="portfolio-card reveal-card">
+                    <div class="portfolio-image">
+                        <div class="mockup-desktop">
+                            <div class="browser-bar">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="mockup-content gradient-3"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>CloudSync Pro</h3>
+                        <p>Plataforma de sincronización con análisis predictivo</p>
+                        <div class="portfolio-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Velocidad</span>
+                                <span class="stat-value">0.8s</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">SEO Score</span>
+                                <span class="stat-value">99/100</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Usuarios</span>
+                                <span class="stat-value">+180%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ============================
+         PRECIOS - Planes de inversión
+         ============================ -->
+
+    <section class="precios" id="precios">
+
+        <div class="container">
+
+            <!-- Encabezado de sección con título y descripción -->
+            <div class="section-header">
+                <h2 class="section-title">Planes de Inversión</h2>
+                <p class="section-description">Soluciones escalables para cada etapa de tu crecimiento</p>
+            </div>
+
+            <!-- Grid de tres planes de precios: Starter, Business (destacado/recomendado) y Enterprise.
+                 Cada tarjeta muestra nombre, descripción, precio, lista de características incluidas/excluidas y botón de acción. -->
+            <div class="pricing-grid">
+
+                <!-- Plan Starter: básico para emprendedores -->
+                <div class="pricing-card reveal-card">
+                    <div class="pricing-header">
+                        <h3>Starter</h3>
+                        <p class="pricing-desc">Ideal para emprendedores</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="currency">€</span>
+                        <span class="amount">174'99</span>
+                        <span class="period">/proyecto</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ Diseño Web Responsivo</li>
+                        <li>✓ SEO Básico</li>
+                        <li>✓ Hosting por 1 año</li>
+                        <li>✓ Dominio Gratis</li>
+                        <li>✗ Integración IA</li>
+                        <li>✗ Soporte 24/7</li>
+                    </ul>
+                    <button class="btn-pricing">Elegir Plan</button>
+                </div>
+
+                <!-- Plan Business: recomendado, para empresas en crecimiento (tarjeta destacada visualmente) -->
+                <div class="pricing-card featured reveal-card">
+                    <div class="pricing-badge">RECOMENDADO</div>
+                    <div class="pricing-header">
+                        <h3>Business</h3>
+                        <p class="pricing-desc">Para empresas en crecimiento</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="currency">€</span>
+                        <span class="amount">289'99</span>
+                        <span class="period">/proyecto</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ Diseño Web Premium</li>
+                        <li>✓ SEO Avanzado</li>
+                        <li>✓ Sitios Ilimitados</li>
+                        <li>✓ IA Chatbot Básico</li>
+                        <li>✓ Hosting Escalable</li>
+                        <li>✗ Soporte 24/7</li>
+                    </ul>
+                    <button class="btn-pricing btn-primary">Elegir Plan</button>
+                </div>
+
+                <!-- Plan Enterprise: solución completa para líderes de mercado -->
+                <div class="pricing-card reveal-card">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <p class="pricing-desc">Para líderes de mercado</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="currency">€</span>
+                        <span class="amount">499'99</span>
+                        <span class="period">/proyecto</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ Solución Personalizada</li>
+                        <li>✓ SEO Enterprise</li>
+                        <li>✓ IA Avanzada Full</li>
+                        <li>✓ Machine Learning</li>
+                        <li>✓ Infraestructura Premium</li>
+                        <li>✓ Soporte 24/7</li>
+                        <li>✓ Consultoría Estratégica</li>
+                    </ul>
+                    <button class="btn-pricing">Contactar Ventas</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ============================
+         CTA + FORMULARIO DE CONTACTO
+         ============================ -->
+
+    <section class="cta-section" id="contacto">
+
+        <div class="container">
+
+            <!-- Bloque de llamada a la acción con título persuasivo y subtítulo de prueba social -->
+            <div class="cta-content">
+
+                <h2>¿Listo para Transformar tu Presencia Digital?</h2>
+                <p>Únete a más de 150 empresas que han escalado exponencialmente con W SHARK</p>
+
+                <!-- Formulario de contacto para agendar una consulta gratuita.
+                     Recoge nombre, email, empresa, teléfono, servicio de interés, descripción del proyecto
+                     y aceptación de política de privacidad. El envío es gestionado desde script.js. -->
+                <div class="contact-form-wrapper reveal-fade">
+
+                    <form id="contactForm" class="contact-form">
+
+                        <!-- Campo: nombre completo (obligatorio) -->
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo *</label>
+                            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                        </div>
+
+                        <!-- Campo: email (obligatorio) -->
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                        </div>
+
+                        <!-- Campo: nombre de empresa o negocio (obligatorio) -->
+                        <div class="form-group">
+                            <label for="empresa">Empresa/Negocio *</label>
+                            <input type="text" id="empresa" name="empresa" required placeholder="Nombre de tu empresa">
+                        </div>
+
+                        <!-- Campo: teléfono (opcional) -->
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono" placeholder="+34 600 000 000">
+                        </div>
+
+                        <!-- Selector desplegable: servicio de interés (obligatorio) -->
+                        <div class="form-group">
+                            <label for="servicio">¿Qué servicio te interesa? *</label>
+                            <select id="servicio" name="servicio" required>
+                                <option value="">Selecciona un servicio</option>
+                                <option value="diseño">Diseño Web Premium</option>
+                                <option value="seo">SEO Avanzado</option>
+                                <option value="ia">Automatización con IA</option>
+                                <option value="otro">Otro / Consultoría</option>
+                            </select>
+                        </div>
+
+                        <!-- Textarea: descripción libre de situación y objetivos del cliente (obligatorio) -->
+                        <div class="form-group">
+                            <label for="contexto">Cuéntanos tu situación y objetivos *</label>
+                            <textarea id="contexto" name="contexto" required placeholder="¿Cuál es tu situación actual? ¿Qué objetivos tienes? ¿Qué desafíos enfrenta tu negocio?" rows="5"></textarea>
+                        </div>
+
+                        <!-- Checkbox de aceptación de política de privacidad (obligatorio) -->
+                        <div class="form-group checkbox">
+                            <input type="checkbox" id="privacidad" name="privacidad" required>
+                            <label for="privacidad">Acepto la política de privacidad y que contacten conmigo *</label>
+                        </div>
+
+                        <!-- Botón de envío del formulario y párrafo donde se muestra el mensaje de respuesta -->
+                        <button type="submit" class="btn-cta btn-primary btn-large">Agendar Consulta Gratuita</button>
+                        <p class="form-message" id="formMessage"></p>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ============================
+         FOOTER - Pie de página
+         ============================ -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <!-- Cuatro columnas de información: marca con redes sociales, productos, contacto y enlaces legales -->
+            <div class="footer-content">
+
+                <!-- Columna 1: descripción de la marca y enlaces a redes sociales (LinkedIn, X/Twitter, GitHub) -->
+                <div class="footer-column">
+                    <h4>W SHARK</h4>
+                    <p>Transformamos visiones digitales en soluciones tecnológicas excepcionales impulsadas por IA.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                        <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+                        <a href="#" class="social-link" aria-label="GitHub">⚙</a>
+                    </div>
+                </div>
+
+                <!-- Columna 2: enlaces de navegación rápida a secciones del sitio -->
+                <div class="footer-column">
+                    <h4>Productos</h4>
+                    <ul>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#precios">Precios</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: datos de contacto directo (email, teléfono y ubicación) -->
+                <div class="footer-column">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="mailto:hola@wshark.com">hola@wshark.com</a></li>
+                        <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                        <li><a href="#">Barcelona, España</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: enlaces a páginas legales (privacidad, términos y cookies) -->
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacidad</a></li>
+                        <li><a href="#">Términos</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Barra inferior del footer con el copyright -->
+            <div class="footer-bottom">
+                <p>&copy; 2024 W SHARK. Todos los derechos reservados. Diseño y desarrollo premium impulsado por tecnología.</p>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Script principal: maneja animaciones, partículas, menú móvil y el envío del formulario -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
